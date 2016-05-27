@@ -11,6 +11,10 @@
     <link href="{{ URL::asset('img/favicon.ico') }}" rel="shortcut icon" />
 
 
+<link href="css/app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
@@ -35,7 +39,13 @@
     </style>
 </head>
 
-<body id="app-layout">
+<script>
+        var baseUrl='{{url('/')}}';
+    </script>
+</head>
+
+
+<body id="app-layout" ng-app="myApp">
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
@@ -131,11 +141,14 @@
 
 @yield('content')
 
+
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 @yield('body.script')
 </body>
+
+    
 
 <script type="text/javascript">
     // enable the option for savegin as a file, the PHP script will test if it is running on localhost anyway.

@@ -14,4 +14,6 @@ class Listpgw extends Model
     {
         return $this->hasMany('App\Recordpgw','id');
     }
+
+
 }
