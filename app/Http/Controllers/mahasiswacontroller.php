@@ -17,9 +17,9 @@ class mahasiswacontroller extends Controller
     }
 
     public function getdata(){
-    	$listmhs = Listmhs::all();
+    	$listmhs = Listmhs::paginate(10);
 
-    	return $listmhs;
+    	return view('ListMahasiswa.listmhs')->with('listmhs', $listmhs);
     }
 
 }
