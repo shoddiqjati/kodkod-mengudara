@@ -4,6 +4,7 @@
 include_once('tbs_class.php'); // Load the TinyButStrong template engine
 include_once('tbs_plugin_opentbs.php'); // Load the OpenTBS plugin
 
+
 // prevent from a PHP configuration problem when using mktime() and date()
 if (version_compare(PHP_VERSION,'5.1.0')>=0) {
     if (ini_get('date.timezone')=='') {
@@ -21,8 +22,8 @@ $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
 
 $servername = "localhost";
 $username = "root";
-$password = "";
-$dbname = "simple";
+$password = "root";
+$dbname = "db_simple";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -81,6 +82,7 @@ switch ($bulan) {
 
 $kepada = (isset($_POST['kepada'])) ? $_POST['kepada'] : '';
 $kepada = trim(''.$kepada);
+$ket = (isset($_POST['keterangan'])) ? $_POST['keterangan'] : '';
 if ($kepada=='') $kepada = "(kepada)";
 
 $jml_id = (isset($_POST['jml_id'])) ? $_POST['jml_id'] : '';
@@ -225,7 +227,6 @@ for($i=1; $i<=10; $i++){
 for($i=1; $i<=$jml_id; $i++){
     ${'niu'.$i} = (isset($_POST['niu'.$i])) ? $_POST['niu'.$i] : '';
     ${'niu'.$i} = trim(''.${'niu'.$i});
-
 }
 
 
@@ -305,8 +306,32 @@ for($i=1; $i<=$jml_id; $i++){
 // -----------------
 
 $template = (isset($_POST['tpl'])) ? $_POST['tpl'] : '';
+
+$mhs_id;
+$nama_mhs;
+$query = "SELECT * FROM `list_mhs` WHERE `niu` = '$niu'";
+$result_mhsid = $conn->query($query);
+if ($result_mhsid->num_rows>0){
+    while ($row = $result_mhsid->fetch_assoc()) {
+        $mhs_id = $row['id'];
+        $nama_mhs = $row['nama'];
+    }
+} else{}
+
+$nama_surat;
+$query = "SELECT `nama_surat` FROM `template_surat` WHERE `filename` = '$template'";
+$result_surat = $conn->query($query);
+if ($result_surat->num_rows>0) {
+    while ($row = $result_surat->fetch_assoc()) {
+        $nama_surat = $row['nama_surat'];
+    }
+}
+
+$query = "INSERT INTO `record_mhs`(`tanggal_surat`, `mhs_id`, `nama_mhs`, `nama_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$mhs_id', '$nama_mhs', '$nama_surat', '$ket', 'Processing')";
+$result_insert = $conn->query($query);
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 $TBS->MergeBlock('a', $data);
+
 /*
 // ----------------------
 // Debug mode of the demo
@@ -352,5 +377,6 @@ if ($save_as==='') {
     // The script can continue.
     exit("File [$output_file_name] has been created.");
 }
+
 $conn->close();
 ?>
