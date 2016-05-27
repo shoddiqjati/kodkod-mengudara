@@ -18,3 +18,32 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
+
+Route::group(['middleware' => 'auth'], function() {
+
+
+
+});
+
+Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
+{
+	Route::get('/', function () {
+    return 'ini admin';
+});
+
+
+});
+
+Route::group(['prefix' => 'pegawai','middleware' => 'role:pegawai'], function()
+{
+
+});
+
+Route::group(['prefix' => 'mahasiswa','middleware' => 'role:mahasiswa'], function()
+{
+
+});
+
+
