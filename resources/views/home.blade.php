@@ -49,11 +49,6 @@
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
-                                    <?php
-                                    use App\Templatesurat as namaSurat;
-
-                                    namaSurat::query("SELECT * FROM `template_surat`")
-                                    ?>
                                     <option value="cuti_kuliah.odt">Cuti Kuliah</option>
                                     <option value="rekomendasi_beasiswa.odt">Rekomendasi Beasiswa</option>
                                     <option value="aktif_kuliah.odt">Surat Aktif Kuliah</option>
