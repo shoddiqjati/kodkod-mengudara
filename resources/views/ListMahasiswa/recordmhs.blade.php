@@ -39,6 +39,7 @@
 @foreach($record as $recor)
 <tr>
 	<td>{{$recor->nama_surat}}</td>
+  <td>{{$recor->no_surat}}</td>
 	<td>{{$recor->keterangan}}</td>
 
 </tr>

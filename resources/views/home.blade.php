@@ -19,13 +19,13 @@
                             </li>
                             @role(2)
                             <li>
-                                <a href="{{ url('/getData') }}">Data</a>
+                                <a href="{{ url('/recordpgw') }}">Data</a>
                             </li>
                             @endrole
 
                             @role(3)
                             <li>
-                                <a href="{{ url('/getData') }}">Data</a>
+                                <a href="{{ url('/record') }}">Data</a>
                             </li>
                             @endrole
 

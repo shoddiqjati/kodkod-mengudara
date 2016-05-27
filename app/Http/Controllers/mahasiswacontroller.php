@@ -10,6 +10,8 @@ use App\Listmhs;
 
 use App\Recordmhs;
 
+use Auth;
+
 
 class mahasiswacontroller extends Controller
 {
@@ -68,6 +70,22 @@ class mahasiswacontroller extends Controller
     
         // }
     }
+
+
+     public function data(){
+      $name = Auth::user()->name;
+
+      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+
+      foreach ($lstmhs as $list) {
+        $lst = $list->id;
+      }
+        
+      $rcdmhs = Recordmhs::where('mhs_id', 'LIKE', $lst)->paginate(10);
+      
+      return view('ListMahasiswa.datarcdmhs')->with('rcdmhs', $rcdmhs);
+    }
+
 
 
 
