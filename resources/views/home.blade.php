@@ -22,18 +22,22 @@
                             </li>
                         </ul>
                         <br>
-                   
-                        <form role="form" id="form1" method="post" action="templates/demo_merge.php" class="col-md-5 well">
+
+                        @role(1)
+                        @endrole
+                        @role(2)
+                        @endrole
+                        @role(3)
+                        <form role="form" id="form_mhs" method="post" action="templates/demo_merge.php" class="col-md-5 well">
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
-                                    <option value="cuti_besar.odt">Cuti Besar</option>
-                                    <option value="cuti_haji.odt">Cuti Haji</option>
-                                    <option value="cuti_umroh.odt">Cuti Umroh</option>
-                                    <option value="cuti_alasan_penting.odt">Cuti Alasan Penting</option>
-                                    <option value="cuti_tahunan.odt">Cuti Tahunan</option>
+                                    <option value="cuti_kuliah.odt">Cuti Kuliah</option>
+                                    <option value="rekomendasi_beasiswa.odt">Rekomendasi Beasiswa</option>
+                                    <option value="aktif_kuliah.odt">Surat Aktif Kuliah</option>
                                 </select>
                             </div>
+                        @endrole
                             <div class="form-group" >
                                 <label class="control-label" for="kepada">Surat Ini Ditujukan Kepada</label>
                                 <input placeholder="Masukkan Penerima Surat" name="kepada" id="kepada" type="text" class="form-control"/>
