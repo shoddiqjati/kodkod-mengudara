@@ -58,19 +58,26 @@
                           <div class="modal-body">
                             <div class="col-xs-12">
                               <form action="{{ url('admin/cms/tambah') }}" method="post" enctype="multipart/form-data">
+                                
                                 <div>
-                                  <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
-                                </div><br>
-                                <div>
-                                Nama Surat
-                                  <input type="text" name="nama_surat" required="required">
+                                Nama Surat <br>
+                                  <input class="form-control" type="text" name="nama_surat" required="required">
                                 </div>
                                 <div>
+                                <br>
                                 Kategori 
-                                  <select required="required" name="kategori" title="Pilih Kategori">
+                                <div>
+                                  <select class="form-control"  required="required" name="kategori" title="Pilih Kategori">
                                     <option value="mahasiswa">Mahasiswa</option>
                                     <option value="pegawai">Pegawai</option>
                                   </select>
+                                  </div>
+                                  <br>
+                                  Upload File
+                                  <div>
+                                  <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
+                                </div><br>
+                                  <br>
                                 </div>
                                 <div style="float:right;">
                                   <input type="submit" class="btn btn-success" value="Upload" name="submit">
@@ -85,6 +92,8 @@
                       </div>
                     </div>
                   </div>
+
+
                   <div>
                   @if ($surat->count())
                     <table class="table table-striped">
@@ -123,13 +132,27 @@
                                   <div class="modal-body">
                                     <div class="col-xs-12">
                                       <form action="{{ url('admin/cms/update', $surati->id) }}" method="post" enctype="multipart/form-data">
-                                        <div>
-                                          <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
-                                        </div><br>
-                                        <div>
-                                        Nama Surat
-                                        <input type="text" name="nama_surat">
-                                        </div>
+                                         <div>
+                                Nama Surat <br>
+                                  <input class="form-control" type="text" name="nama_surat" required="required">
+                                </div>
+                                <div>
+                                <br>
+                                Kategori 
+                                <div>
+                                  <select class="form-control"  required="required" name="kategori" title="Pilih Kategori">
+                                    <option value="mahasiswa">Mahasiswa</option>
+                                    <option value="pegawai">Pegawai</option>
+                                  </select>
+                                  </div>
+                                  <br>
+                                  Upload File
+                                  <div>
+
+                                  <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
+                                </div><br>
+                                  <br>
+                                </div>
                                         <div style="float:right;">
                                           <input type="submit" class="btn btn-success" value="Upload" name="submit">
                                           <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
