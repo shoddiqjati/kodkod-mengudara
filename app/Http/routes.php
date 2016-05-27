@@ -63,6 +63,14 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
       Route::get('listmahasiswa/record/{id}', 'mahasiswacontroller@recordmhs');
 
      // Route::get('getdatamhs', 'mahasiswacontroller@getdata');
+
+    Route::get('cms', 'templateController@getData');
+    Route::get('cms/{id}/delete', 'templateController@delete');
+    Route::post('cms/tambah', 'templateController@create');
+    Route::get('cms/tambah', array('uses' => 'templateController@create'));
+    Route::post('cms/update/{id}', 'templateController@update');
+    Route::get('cms/update/{id}', array('uses' => 'templateController@update'));
+    Route::post('cms/update/{id}', 'templateController@update');
 });
 
 Route::group(['prefix' => 'pegawai','middleware' => 'role:pegawai'], function()
