@@ -14,6 +14,7 @@ class TemplateSurat extends Migration
     {
         Schema::create('template_surat', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('kategori');
             $table->string('nama_surat')->index();
             $table->timestamps();
         });
