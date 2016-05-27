@@ -15,7 +15,7 @@ class RecordMhs extends Migration
         Schema::create('record_mhs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tanggal_surat')->nullable();
-            $table->string('no_surat')->nullable();
+            $table->increments('no_surat');
             $table->integer('mhs_id')->unsigned()->default(0);
             $table->foreign('mhs_id')
                     ->references('id')->on('list_mhs')
