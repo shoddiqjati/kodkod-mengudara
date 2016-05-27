@@ -22,7 +22,7 @@ class RecordPgw extends Migration
             $table->foreign('nama_surat')
                     ->references('nama_surat')->on('template_surat')
                     ->onDelete('cascade');
-            $table->string('keterangan');
+            $table->string('keterangan'->nullable();
             $table->timestamps();
         });
     }

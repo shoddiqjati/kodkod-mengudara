@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">Dashboard</div>
+          <div class="panel-body">
 
 <form action="{{ url('admin/recordmahasiswacari/'. $mhs->id) }}" method="get">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
@@ -21,7 +26,7 @@
 
 
 
-<table>
+<table class="table table-striped">
 
 
 	
@@ -44,7 +49,13 @@
 
 
 {!!$record->appends(Request::only('mhs'))->render()!!}
-
+					</div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

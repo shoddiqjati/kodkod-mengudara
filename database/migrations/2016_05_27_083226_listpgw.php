@@ -15,13 +15,13 @@ class Listpgw extends Migration
         Schema::create('list_pgw', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nip')->index();
-            $table->string('nama');
-            $table->string('tempat_lahir');
-            $table->string('tanggal_lahir');
-            $table->string('pangkat');
-            $table->string('golongan');
-            $table->string('jabatan');
-            $table->string('unit_kerja');
+            $table->string('nama')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
+            $table->string('pangkat')->nullable();
+            $table->string('golongan')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('unit_kerja')->nullable();
             $table->timestamps();
         });
     }
