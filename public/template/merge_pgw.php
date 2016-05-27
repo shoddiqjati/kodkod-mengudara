@@ -21,8 +21,8 @@ $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
 
 $servername = "localhost";
 $username = "root";
-$password = "";
-$dbname = "mengudara";
+$password = "root";
+$dbname = "db_simple";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -81,6 +81,7 @@ switch ($bulan) {
 
 $kepada = (isset($_POST['kepada'])) ? $_POST['kepada'] : '';
 $kepada = trim(''.$kepada);
+$ket = (isset($_POST['keterangan'])) ? $_POST['keterangan'] : '';
 if ($kepada=='') $kepada = "(kepada)";
 
 $jml_id = (isset($_POST['jml_id'])) ? $_POST['jml_id'] : '';
@@ -293,6 +294,30 @@ for($i=1; $i<=$jml_id; $i++){
 // -----------------
 
 $template = (isset($_POST['tpl'])) ? $_POST['tpl'] : '';
+
+$pgw_id;
+$nama_pgw;
+$query = "SELECT * FROM `list_pgw` WHERE `nip` = '$nip'";
+$result_mhsid = $conn->query($query);
+if ($result_mhsid->num_rows>0){
+    while ($row = $result_mhsid->fetch_assoc()) {
+        $mhs_id = $row['id'];
+        $nama_mhs = $row['nama'];
+    }
+} else{}
+
+$nama_surat;
+$query = "SELECT `nama_surat` FROM `template_surat` WHERE `filename` = '$template'";
+$result_surat = $conn->query($query);
+if ($result_surat->num_rows>0) {
+    while ($row = $result_surat->fetch_assoc()) {
+        $nama_surat = $row['nama_surat'];
+    }
+}
+
+$query = "INSERT INTO `record_pgw`(`tanggal_surat`, `pgw_id`, `nama_pgw`, `nama_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$mhs_id', '$nama_mhs', '$nama_surat', '$ket', 'Processing')";
+$result_insert = $conn->query($query);
+
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 $TBS->MergeBlock('a', $data);
 /*

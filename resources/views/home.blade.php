@@ -84,6 +84,8 @@
                         @role(3)
                        
                             <div class="form-group">
+                                <label class="control-label" for="keterangan">Keterangan</label>
+                                <input name="keterangan" placeholder="Keterangan" id="keterangan" type="text" class="form-control"/>
                                 <label class="control-label" for="NIM">Masukkan nip</label>
                                 <input name="niu1" placeholder="Masukkan niu" id="nip" type="text" class="form-control"/>
 
@@ -109,6 +111,8 @@
                              @role(2)
                        
                             <div class="form-group">
+                                <label class="control-label" for="keterangan">Keterangan</label>
+                                <input name="keterangan" placeholder="Keterangan" id="keterangan" type="text" class="form-control"/>
                                 <label class="control-label" for="NIM">Masukkan nip</label>
                                 <input name="nip1" placeholder="Masukkan niu" id="nip" type="text" class="form-control"/>
 
