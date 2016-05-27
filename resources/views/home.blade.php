@@ -20,6 +20,11 @@
                             <li>
                                 <a href="{{ url('/getData') }}">Data</a>
                             </li>
+                            @role(1)
+                            <li>
+                                <a href="{{ url('admin/cms') }}">CMS</a>
+                            </li>
+                            @endrole
                         </ul>
                         <br>
 
