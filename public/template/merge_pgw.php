@@ -21,8 +21,8 @@ $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
-$dbname = "db_simple";
+$password = "";
+$dbname = "simple";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
