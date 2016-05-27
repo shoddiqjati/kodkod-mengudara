@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Listpgw;
 
+use App\Recordpgw;
+
 class pegawaicontroller extends Controller
 {
         public function index()
@@ -23,7 +25,7 @@ class pegawaicontroller extends Controller
 
 
     public function searchpgw(Request $request) {
-      $cari = $request->get('pgw');
+      $cari = $request->get('mhs');
       if($cari==''){
         // return redirect('admin/listspd');
         return redirect()->back(); 
@@ -31,12 +33,40 @@ class pegawaicontroller extends Controller
 
       else{
 
-      $result = listmhs::where('nama', 'LIKE', '%'.$cari.'%')->orWhere('niu', 'LIKE', '%'.$cari.'%')->orWhere('nif', 'LIKE', '%'.$cari.'%')->orWhere('fakultas', 'LIKE', '%'.$cari.'%')->paginate(10);
+      $result = listpgw::where('nama', 'LIKE', '%'.$cari.'%')->orWhere('nip', 'LIKE', '%'.$cari.'%')->orWhere('unit_kerja', 'LIKE', '%'.$cari.'%')->orWhere('pangkat', 'LIKE', '%'.$cari.'%')->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('ListMahasiswa.listpgwcari')->with('result', $result);
+        return view('ListPegawai.listpgwcari')->with('result', $result);
     
         }
+    }
+
+
+    public function recordpgw($id) {
+         $pgw = Listpgw::findOrFail($id);
+         $record = Recordpgw::where('pgw_id', 'LIKE', $id)->paginate(10);
+        return view('ListPegawai.recordpgw', compact('record'))->with('pgw', $pgw);
+    }
+
+
+
+     public function searchrecordpgw(Request $request, $id) {
+      $cari = $request->get('mhs');
+
+      $pgwi = Listpgw::findOrFail($id);
+      // if($cari==''){
+      //   // return redirect('admin/listspd');
+      //   return redirect()->back(); 
+      // }
+
+      // else{
+
+      $result = Recordpgw::where('nama_surat', 'LIKE', '%'.$cari.'%')->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('ListPegawai.recordpgwcari')->with('result', $result)->with('pgwi', $pgwi);
+    
+        // }
     }
 
 

@@ -64,9 +64,12 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
 
       Route::get('listmahasiswacari', 'mahasiswacontroller@searchmhs');
-      Route::get('listmahasiswacari', 'pegawawicontroller@searchpgw');
+      Route::get('listpegawaicari', 'pegawaicontroller@searchpgw');
       Route::get('listmahasiswa/record/{id}', 'mahasiswacontroller@recordmhs');
+        Route::get('listpegawai/record/{id}', 'pegawaicontroller@recordpgw');
        Route::get('recordmahasiswacari/{id}', 'mahasiswacontroller@searchrecordmhs');
+
+        Route::get('recordpegawaicari/{id}', 'pegawaicontroller@searchrecordpgw');
 
      // Route::get('getdatamhs', 'mahasiswacontroller@getdata');
 

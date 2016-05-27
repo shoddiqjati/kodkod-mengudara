@@ -13,10 +13,13 @@
 <table>
 	
 <tr>
+<th>NIP</th>
 <th>Nama</th>
-<th>Angkatan</th>
-<th>NIU</th>
-<th>Fakultas</th>	
+<th>Tanggal Lahir</th>
+<th>Pangkat</th>
+<th>Golongan</th>
+<th>Unit Kerja</th>
+<th>Aksi</th>	
 </tr>
 
 @foreach($listpgw as $pgw)
@@ -29,7 +32,7 @@
 <td>{{$pgw->unit_kerja}}</td>	
 <td><a class="btn btn-info" data-placement="bottom" title="Lihat Detil Mahasiswa" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $pgw->id;?>" href="#"><span class="fa fa-book"></span></a></td>
 
-<td><a class="btn btn-succes" data-placement="bottom" title="Lihat Record Mahasiswa" href="{{url('admin/listmahasiswa/record/'. $pgw->id)}}"><span> Record </span></a></td>
+<td><a class="btn btn-succes" data-placement="bottom" title="Lihat Record Mahasiswa" href="{{url('admin/listpegawai/record/'. $pgw->id)}}"><span> Record </span></a></td>
 </tr>
 
 <div class="modal fade" id="modalshow<?php echo $pgw->id;?>" tabindex="-1" role="dialog">
