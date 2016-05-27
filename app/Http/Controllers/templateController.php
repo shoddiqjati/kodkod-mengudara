@@ -111,4 +111,21 @@ class templateController extends Controller
 	    // \Session::flash('flash_message_tambah','');
 	        return redirect('admin/cms');
     }
+
+    public function search(Request $request) 
+    {
+       	$cari = $request->get('search');
+
+
+        if($cari=='')
+        {
+        	return redirect()->back(); 
+    	}
+    	else
+    	{
+      	$result = surat::where('nama_surat', 'LIKE', '%'.$cari.'%')->paginate(10);
+        return view('cms.indexcari')->with('result', $result);
+
+    	}
+    }
 }
