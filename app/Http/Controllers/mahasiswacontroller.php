@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Listmhs;
+
 class mahasiswacontroller extends Controller
 {
     
@@ -13,4 +15,11 @@ class mahasiswacontroller extends Controller
     {
         return view('ListMahasiswa.listmhs');
     }
+
+    public function getdata(){
+    	$listmhs = Listmhs::all();
+
+    	return $listmhs;
+    }
+
 }
