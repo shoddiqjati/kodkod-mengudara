@@ -7,8 +7,7 @@
 
 
 
-
-<form action="{{ url('admin/listmahasiswacari') }}" method="get">
+<form action="{{ url('admin/listmahasiswacari') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
   <input class="form-control pull-left" type="text" name="mhs" id="mhs" placeholder="cari.." style="width: 200px; height:30px; margin-top: 2px;margin-right:10px"></input>
   <input class="btn btn-default pull-left" type="submit" value="Cari" ></input>
@@ -22,18 +21,17 @@
 <th>Nama</th>
 <th>Angkatan</th>
 <th>NIU</th>
-<th>Fakultas</th>	
+<th>Fakultas</th>
+<th>Aksi</th>	
 </tr>
 
-@foreach($listmhs as $mhs)
+@foreach($result as $mhs)
 <tr>
 <td>{{$mhs->nama}}</td>
 <td>{{$mhs->angkatan}}</td>
 <td>{{$mhs->niu}}</td>
 <td>{{$mhs->fakultas}}</td>	
 <td><a class="btn btn-info" data-placement="bottom" title="Lihat Detil Mahasiswa" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $mhs->id;?>" href="#"><span class="fa fa-book"></span></a></td>
-
-<td><a class="btn btn-succes" data-placement="bottom" title="Lihat Detil Mahasiswa" href="{{url('')}}"><span> Record </span></a></td>
 </tr>
 
 <div class="modal fade" id="modalshow<?php echo $mhs->id;?>" tabindex="-1" role="dialog">
@@ -174,14 +172,17 @@
                                     </div>
                                     <div class="modal-footer">
                                       <a class="btn btn-info btn-simple pull-left" style="width:70px" title="Kembali" data-dismiss="modal">Kembali</a>
-                                    
+                                     
                                     </div>
                                 </div>
-
 
 @endforeach
 
 </table>
 
-{!!$listmhs->render()!!}
+{!!$result->appends(Request::only('mhs'))->render()!!}
+
+
+
+
 @endsection
