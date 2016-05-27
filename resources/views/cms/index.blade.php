@@ -74,6 +74,7 @@
                               <th>Nama Surat</th>
                               <th>File Name</th>
                               <th>Waktu Unggah</th>
+                              <th>Aksi</th>
                           </tr>
                       </thead>
 
@@ -86,9 +87,7 @@
                           <td>{{ $surati->nama_surat }}</td>
                           <td>{{ $surati->filename }}</td>
                           <td>{{ $surati->updated_at }}</td>
-
-                          <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate"><span class="glyphicon glyphicon-pencil"></a></td>
-                          <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete"><span class="glyphicon glyphicon-trash"></a></td>
+                          <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate"><span class="glyphicon glyphicon-pencil"></a><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete"><span class="glyphicon glyphicon-trash"></a></td>
 
                             <div class="modal fade" id="modalupdate" tabindex="-1" role="dialog">
                               <div class="modal-dialog" role="document">

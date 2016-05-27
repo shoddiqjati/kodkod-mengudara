@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">Dashboard</div>
+          <div class="panel-body">
 
-
-<form action="{{ url('admin/recordmahasiswacari/. $mhsw->id') }}" method="get">
+<form action="{{ url('admin/recordmahasiswacari/'. $mhs->id) }}" method="get">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
   <input class="form-control pull-left" type="text" name="mhs" id="mhs" placeholder="cari.." style="width: 200px; height:30px; margin-top: 2px;margin-right:10px"></input>
   <input class="btn btn-default pull-left" type="submit" value="Cari" ></input>
@@ -13,15 +18,16 @@
 <br>
 <br>
 
-{{$mhsw->nama}}
 
+{{$mhs->nama}}
 
 <br>
 <br>
 
 
 
-<table>
+<table class="table table-striped">
+
 
 	
 <tr>
@@ -30,21 +36,27 @@
 <th>Tanggal</th>
 </tr>
 
-
-@foreach($result as $res)
+@foreach($result as $recor)
 <tr>
-	<td>{{$result->nama_surat}}</td>
-	<td>{{$result->keterangan}}</td>
+	<td>{{$recor->nama_surat}}</td>
+	<td>{{$recor->keterangan}}</td>
 
 </tr>
+
 @endforeach
 </table>
 
+
+
 {!!$result->appends(Request::only('mhs'))->render()!!}
-
-
+					</div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 @endsection
-
