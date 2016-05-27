@@ -32,7 +32,7 @@
 
 
                             @role(1)
-                            <li>
+                            <li class="active">
                                 <a href="{{ url('admin/cms') }}">Tambah Template</a>
                             </li>
                             @endrole
