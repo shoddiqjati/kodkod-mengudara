@@ -11,12 +11,11 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+Route::auth();
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+
+Route::group(['middleware' => 'auth'], function () {
+    
 
     Route::get('/', 'namasuratController@getData');
 
