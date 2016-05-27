@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
      // Route::get('getdatamhs', 'mahasiswacontroller@getdata');
 
     Route::get('cms', 'templateController@getData');
+    Route::get('cms/search', 'templateController@search');
     Route::get('cms/{id}/delete', 'templateController@delete');
     Route::post('cms/tambah', 'templateController@create');
     Route::get('cms/tambah', array('uses' => 'templateController@create'));

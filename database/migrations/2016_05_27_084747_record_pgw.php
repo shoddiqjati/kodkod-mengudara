@@ -14,7 +14,7 @@ class RecordPgw extends Migration
     {
         Schema::create('record_pgw', function (Blueprint $table) {
             $table->increments('id');
-             $table->string('no_surat')->nullable();
+             $table->increments('no_surat');
             $table->integer('pgw_id')->unsigned()->default(0);
             $table->foreign('pgw_id')
                     ->references('id')->on('list_pgw')

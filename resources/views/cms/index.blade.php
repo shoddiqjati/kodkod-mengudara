@@ -32,7 +32,7 @@
 
 
                             @role(1)
-                            <li>
+                            <li class="active">
                                 <a href="{{ url('admin/cms') }}">Tambah Template</a>
                             </li>
                             @endrole
@@ -45,8 +45,8 @@
                     </div>
                     <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
                   </form>
-                  <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport1">Tambah Template</a>
-                    <div class="modal fade" id="modalimport1" tabindex="-1" role="dialog">
+                  <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport2">Tambah Template</a>
+                    <div class="modal fade" id="modalimport2" tabindex="-1" role="dialog">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">  
                           <div class="modal-header">
@@ -58,19 +58,26 @@
                           <div class="modal-body">
                             <div class="col-xs-12">
                               <form action="{{ url('admin/cms/tambah') }}" method="post" enctype="multipart/form-data">
+                                
                                 <div>
-                                  <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
-                                </div><br>
-                                <div>
-                                Nama Surat
-                                  <input type="text" name="nama_surat" required="required">
+                                Nama Surat <br>
+                                  <input class="form-control" type="text" name="nama_surat" required="required">
                                 </div>
                                 <div>
+                                <br>
                                 Kategori 
-                                  <select required="required" name="kategori" title="Pilih Kategori">
+                                <div>
+                                  <select class="form-control"  required="required" name="kategori" title="Pilih Kategori">
                                     <option value="mahasiswa">Mahasiswa</option>
                                     <option value="pegawai">Pegawai</option>
                                   </select>
+                                  </div>
+                                  <br>
+                                  Upload File
+                                  <div>
+                                  <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
+                                </div><br>
+                                  <br>
                                 </div>
                                 <div style="float:right;">
                                   <input type="submit" class="btn btn-success" value="Upload" name="submit">
@@ -85,6 +92,8 @@
                       </div>
                     </div>
                   </div>
+
+
                   <div>
                   @if ($surat->count())
                     <table class="table table-striped">
@@ -123,13 +132,27 @@
                                   <div class="modal-body">
                                     <div class="col-xs-12">
                                       <form action="{{ url('admin/cms/update', $surati->id) }}" method="post" enctype="multipart/form-data">
-                                        <div>
-                                          <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
-                                        </div><br>
-                                        <div>
-                                        Nama Surat
-                                        <input type="text" name="nama_surat">
-                                        </div>
+                                         <div>
+                                Nama Surat <br>
+                                  <input class="form-control" type="text" name="nama_surat" required="required">
+                                </div>
+                                <div>
+                                <br>
+                                Kategori 
+                                <div>
+                                  <select class="form-control"  required="required" name="kategori" title="Pilih Kategori">
+                                    <option value="mahasiswa">Mahasiswa</option>
+                                    <option value="pegawai">Pegawai</option>
+                                  </select>
+                                  </div>
+                                  <br>
+                                  Upload File
+                                  <div>
+
+                                  <input type="file" class="btn btn-default btn-sm btn-file" name="fileToUpload" id="fileToUpload" required="required">
+                                </div><br>
+                                  <br>
+                                </div>
                                         <div style="float:right;">
                                           <input type="submit" class="btn btn-success" value="Upload" name="submit">
                                           <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />

@@ -56,17 +56,22 @@ class mahasiswacontroller extends Controller
       $cari = $request->get('mhs');
 
       $mhsw = Listmhs::findOrFail($id);
-      // if($cari==''){
-      //   // return redirect('admin/listspd');
-      //   return redirect()->back(); 
-      // }
 
-      // else{
+      if($cari==''){
+        // return redirect('admin/listspd');
+        return redirect()->back(); 
+      }
 
-      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->paginate(10);
+      else{
+
+      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')
+        ->where('mhs_id', '=', $mhsw)
+        ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('ListMahasiswa.recordmhscari')->with('result', $result)->with('mhsw', $mhsw);
+  
+        }
     
         // }
     }
