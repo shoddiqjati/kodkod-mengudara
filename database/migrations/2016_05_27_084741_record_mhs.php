@@ -14,18 +14,18 @@ class RecordMhs extends Migration
     {
         Schema::create('record_mhs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tanggal_surat');
+            $table->string('tanggal_surat')->nullable();
             $table->integer('mhs_id')->unsigned()->default(0);
             $table->foreign('mhs_id')
                     ->references('id')->on('list_mhs')
                     ->onDelete('cascade');
-            $table->string('nama_mhs');
+            $table->string('nama_mhs')->nullable();
             $table->string('nama_surat');
             $table->foreign('nama_surat')
                     ->references('nama_surat')->on('template_surat')
                     ->onDelete('cascade');
-            $table->string('keterangan');
-            $table->string('status');
+            $table->string('keterangan')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
