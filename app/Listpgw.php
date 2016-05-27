@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profil extends Model
+class Listpgw extends Model
 {
     
 
