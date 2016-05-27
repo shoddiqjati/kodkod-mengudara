@@ -22,7 +22,7 @@
                             </li>
                         </ul>
                         <br>
-
+                   
                         <form role="form" id="form1" method="post" action="templates/demo_merge.php" class="col-md-5 well">
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
