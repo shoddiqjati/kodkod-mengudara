@@ -40,6 +40,7 @@
 @endforeach
 </table>
 
+{!!$result->appends(Request::only('mhs'))->render()!!}
 
 
 

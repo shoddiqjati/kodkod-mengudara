@@ -45,7 +45,7 @@ class mahasiswacontroller extends Controller
 
      public function recordmhs($id) {
          $mhs = Listmhs::findOrFail($id);
-         $record = Recordmhs::findOrFail($id);
+         $record = Recordmhs::where('mhs_id', 'LIKE', $id)->paginate(10);
         return view('ListMahasiswa.recordmhs', compact('record'))->with('mhs', $mhs);
     }
 

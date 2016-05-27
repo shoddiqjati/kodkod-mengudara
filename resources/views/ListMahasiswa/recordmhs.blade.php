@@ -22,6 +22,8 @@
 
 
 <table>
+
+
 	
 <tr>
 <th>Nama Surat</th>
@@ -29,14 +31,19 @@
 <th>Tanggal</th>
 </tr>
 
-
+@foreach($record as $recor)
 <tr>
-	<td>{{$record->nama_surat}}</td>
-	<td>{{$record->keterangan}}</td>
+	<td>{{$recor->nama_surat}}</td>
+	<td>{{$recor->keterangan}}</td>
 
 </tr>
+
+@endforeach
 </table>
 
+
+
+{!!$result->appends(Request::only('mhs'))->render()!!}
 
 
 
