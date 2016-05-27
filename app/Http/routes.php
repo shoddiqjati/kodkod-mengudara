@@ -51,3 +51,16 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('upload', array('uses' => 'ExportController@upload'));
 });
+
+Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
+{
+	Route::get('/', function () {
+    return 'ini admin';
+    });
+});
+
+Route::group(['prefix' => 'pegawai','middleware' => 'role:pegawai'], function()
+{ });
+
+Route::group(['prefix' => 'mahasiswa','middleware' => 'role:mahasiswa'], function()
+{ });
