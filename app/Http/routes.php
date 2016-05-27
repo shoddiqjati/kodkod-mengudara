@@ -11,12 +11,14 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+Route::auth();
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+
+Route::group(['middleware' => 'auth'], function () {
+    
+     Route::get('/record', 'mahasiswacontroller@data');
+
+     Route::get('/recordpgw', 'pegawaicontroller@data');     
 
     Route::get('/', 'namasuratController@getData');
 

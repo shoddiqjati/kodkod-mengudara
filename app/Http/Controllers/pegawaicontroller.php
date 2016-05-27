@@ -10,6 +10,8 @@ use App\Listpgw;
 
 use App\Recordpgw;
 
+use Auth;
+
 class pegawaicontroller extends Controller
 {
         public function index()
@@ -67,6 +69,21 @@ class pegawaicontroller extends Controller
         return view('ListPegawai.recordpgwcari')->with('result', $result)->with('pgwi', $pgwi);
     
         // }
+    }
+
+
+     public function data(){
+      $name = Auth::user()->name;
+
+      $lstpgw = Listpgw::where('nama', 'LIKE', $name)->get();
+
+      foreach ($lstpgw as $list) {
+        $lst = $list->id;
+      }
+        
+      $rcdpgw = Recordpgw::where('pgw_id', 'LIKE', $lst)->paginate(10);
+      
+      return view('ListPegawai.datarcdpgw')->with('rcdpgw', $rcdpgw);
     }
 
 
