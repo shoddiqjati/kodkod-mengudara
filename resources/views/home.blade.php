@@ -101,23 +101,7 @@
 
 
 
-                            @role(3)
                        
-                            <div class="form-group">
-                                <label class="control-label" for="NIM">Masukkan nip</label>
-                                <input name="niu1" placeholder="Masukkan niu" id="nip" type="text" class="form-control"/>
-
-                             
-                            
-                                 <input type="submit" name="btn_result" value="Cetak" class="btn btn-primary" style="float:right" />
-                            </div>
-
-
-
-
-                           </form>
-
-                           @endrole
 
 
 
@@ -161,7 +145,7 @@
 
 
 
-                                                   @role(3)
+                     @role(3)
                         <div class="col-xs-7">
                             <h4>Petunjuk Penggunaan</h4>
                             <ol>
@@ -172,6 +156,8 @@
                             </ol>
                             <p>Setelah Anda memilih cetak maka file akan otomatis terunduh melalui browser yang Anda gunakan saat ini.</p>
                         </div>
+
+
                         @endrole
                         @role(2)
                             <div class="col-xs-7">
