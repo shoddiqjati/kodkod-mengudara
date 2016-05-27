@@ -12,7 +12,7 @@
 
 
 <link href="css/app.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+   <!--  <link href="css/style.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
 
     <!-- Fonts -->
