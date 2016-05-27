@@ -18,9 +18,9 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'namasuratController@getData');
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'namasuratController@getData');
 
     Route::get('/getData', 'HomeController@getData');
 
@@ -78,4 +78,6 @@ Route::group(['prefix' => 'pegawai','middleware' => 'role:pegawai'], function()
 { });
 
 Route::group(['prefix' => 'mahasiswa','middleware' => 'role:mahasiswa'], function()
-{ });
+{
+
+});

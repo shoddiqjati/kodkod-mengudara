@@ -33,8 +33,9 @@
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
-                                    <option value="transkrip_nilai.odt">Transkrip Nilai</option>
-                                    <option value="surat_tugas_ins.odt">Surat Tugas</option>
+                                    @foreach($namasurat as $nSurat)
+                                        <option value="{{ $nSurat->nama_surat }}.odt">{{ $nSurat->nama_surat }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         @endrole
@@ -43,9 +44,11 @@
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
-                                    <option value="cuti_besar.odt">Cuti Besar</option>
-                                    <option value="cuti_tahunan.odt">Cuti Tahunan</option>
-                                    <option value="surat_tugas.odt">Surat Perintah Tugas</option>
+                                    @foreach($namasurat as $nSurat)
+                                        @if($nSurat->kategori == "pegawai")
+                                            <option value="{{ $nSurat->nama_surat }}.odt">{{ $nSurat->nama_surat }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
                         @endrole
@@ -54,9 +57,11 @@
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
-                                    <option value="cuti_kuliah.odt">Cuti Kuliah</option>
-                                    <option value="rekomendasi_beasiswa.odt">Rekomendasi Beasiswa</option>
-                                    <option value="aktif_kuliah.odt">Surat Aktif Kuliah</option>
+                                    @foreach($namasurat as $nSurat)
+                                        @if($nSurat->kategori == "mahasiswa")
+                                            <option value="{{ $nSurat->nama_surat }}.odt">{{ $nSurat->nama_surat }}</option>
+                                        @endif
+                                        @endforeach
                                 </select>
                             </div>
                         @endrole

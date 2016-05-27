@@ -21,7 +21,7 @@ class mahasiswacontroller extends Controller
 
     public function getdata(){
     	$listmhs = Listmhs::paginate(10);
-
+        
     	return view('ListMahasiswa.listmhs')->with('listmhs', $listmhs);
     }
 
