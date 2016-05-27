@@ -20,20 +20,37 @@
                         <br>
                         <table class="table table-striped">
                             <tr>
+                               <th>Nama Mahasiswa</th>
                                 <th>Nama Surat</th>
                                 <th>No Surat</th>
                                 <th>Keterangan</th>
+                                <th>Status</th>
                                 <th>Tanggal</th>
                             </tr>
 
                             @foreach($result as $recor)
                                 <tr>
+                                     <td>{{$recor->nama_mhs}}</td>
                                     <td>{{$recor->nama_surat}}</td>
                                     <td>{{$recor->no_surat}}</td>
                                     <td>{{$recor->keterangan}}</td>
+                                    <td>{{$recor->status}}</td>
+                                    <td>{{$recor->created_at}}</td>
                                 </tr>
 
                             @endforeach
+
+
+                             @foreach($recordPgw as $recor)
+                                <tr>
+                                    <td>{{$recor->nama_mhs}}</td>
+                                    <td>{{$recor->nama_surat}}</td>
+                                    <td>{{$recor->no_surat}}</td>
+                                    <td>{{$recor->keterangan}}</td>
+                                    <td>{{$recor->status}}</td>
+                                    <td>{{$recor->created_at}}</td>
+                                </tr>
+                                @endforeach
                         </table>
 
 
