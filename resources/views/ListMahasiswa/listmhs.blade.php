@@ -1,12 +1,25 @@
 @extends('layouts.app')
 
-
-
 @section('content')
 
-
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">Dashboard</div>
+          <div class="panel-body">
+                  
+            <ul class="nav nav-tabs">
+              <li>
+                <a href="{{ url('/home') }}">Surat</a>
+              </li>
+              <li>
+                <a href="{{ url('/getData') }}">Data</a>
+              </li>
+              <li class="active">
+                  <a href="{{ url('admin/cms') }}">CMS</a>
+              </li>
+            </ul>
 
 <form action="{{ url('admin/listmahasiswacari') }}" method="get">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
@@ -16,8 +29,8 @@
 </form>
 
 
-<table>
-	
+<table class="table table-striped">
+
 <tr>
 <th>Nama</th>
 <th>Angkatan</th>
@@ -184,4 +197,11 @@
 </table>
 
 {!!$listmhs->render()!!}
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -1,11 +1,25 @@
 @extends('layouts.app')
 
-
-
 @section('content')
 
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">Dashboard</div>
+          <div class="panel-body">
+                  
+            <ul class="nav nav-tabs">
+              <li>
+                <a href="{{ url('/home') }}">Surat</a>
+              </li>
+              <li>
+                <a href="{{ url('/getData') }}">Data</a>
+              </li>
+              <li class="active">
+                  <a href="{{ url('admin/cms') }}">CMS</a>
+              </li>
+            </ul>
 
 <form action="{{ url('admin/listmahasiswacari') }}" method="get">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
@@ -15,14 +29,13 @@
 </form>
 
 
-<table>
-	
+<table class="table table-striped">
+
 <tr>
 <th>Nama</th>
 <th>Angkatan</th>
 <th>NIU</th>
-<th>Fakultas</th>
-<th>Aksi</th>	
+<th>Fakultas</th>   
 </tr>
 
 @foreach($result as $mhs)
@@ -30,8 +43,10 @@
 <td>{{$mhs->nama}}</td>
 <td>{{$mhs->angkatan}}</td>
 <td>{{$mhs->niu}}</td>
-<td>{{$mhs->fakultas}}</td>	
+<td>{{$mhs->fakultas}}</td> 
 <td><a class="btn btn-info" data-placement="bottom" title="Lihat Detil Mahasiswa" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $mhs->id;?>" href="#"><span class="fa fa-book"></span></a></td>
+
+<td><a class="btn btn-succes" data-placement="bottom" title="Lihat Record Mahasiswa" href="{{url('admin/listmahasiswa/record/'. $mhs->id)}}"><span> Record </span></a></td>
 </tr>
 
 <div class="modal fade" id="modalshow<?php echo $mhs->id;?>" tabindex="-1" role="dialog">
@@ -172,17 +187,21 @@
                                     </div>
                                     <div class="modal-footer">
                                       <a class="btn btn-info btn-simple pull-left" style="width:70px" title="Kembali" data-dismiss="modal">Kembali</a>
-                                     
+                                    
                                     </div>
                                 </div>
+
 
 @endforeach
 
 </table>
 
 {!!$result->appends(Request::only('mhs'))->render()!!}
-
-
-
-
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
