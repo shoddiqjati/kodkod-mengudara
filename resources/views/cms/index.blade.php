@@ -7,39 +7,33 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 ">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-                <div class="panel-body">
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">Dashboard</div>
+          <div class="panel-body">
                   
-                  <ul class="nav nav-tabs">
-                    <li>
-                      <a href="{{ url('/home') }}">Surat</a>
-                    </li>
-                    <li>
-                      <a href="{{ url('/getData') }}">Data</a>
-                    </li>
-                    <li class="active">
-                        <a href="{{ url('admin/cms') }}">CMS</a>
-                    </li>
-                  </ul>
-                  <br>
-<<<<<<< HEAD
-                 <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport1">Tambah Template</a>
-                    
-                    <div class="modal fade" id="modalimport1" tabindex="-1" role="dialog">
-=======
-                  <form action="{{ url('admin/cms/search') }}" method="get" enctype="multipart/form-data">
+            <ul class="nav nav-tabs">
+              <li>
+                <a href="{{ url('/home') }}">Surat</a>
+              </li>
+              <li>
+                <a href="{{ url('/getData') }}">Data</a>
+              </li>
+              <li class="active">
+                  <a href="{{ url('admin/cms') }}">CMS</a>
+              </li>
+            </ul>
+            <br>
+            <form action="{{ url('admin/cms/search') }}" method="get" enctype="multipart/form-data">
                     <div class="col-xs-3 pull-left">
                       <input class="form-control"  type="text" name="search" id="search" placeholder="cari.." >
                       <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
                     </div>
                     <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
                   </form>
-                  <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport">Tambah Template</a>
-                    <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
->>>>>>> origin/master
+                  <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport1">Tambah Template</a>
+                    <div class="modal fade" id="modalimport1" tabindex="-1" role="dialog">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">  
                           <div class="modal-header">
@@ -162,7 +156,8 @@
                   @else
                     Belum ada template surat
                   @endif
-              
+                
+              </div>
                   
                 </div>
             </div>
