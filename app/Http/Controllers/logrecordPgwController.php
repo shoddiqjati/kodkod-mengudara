@@ -10,11 +10,11 @@ use App\Http\Requests;
 
 class logrecordPgwController extends Controller
 {
-//    public function getData() {
-//        $listPgw = Listpgw::all();
-//
-//        return view('getData.listmhs')->with('recordmhs', $listPgw);
-//    }
+    public function getData() {
+        $listPgw = Listpgw::all()->paginate(10);
+
+        return view('getData.listpgw')->with('recordmhs', $listPgw);
+    }
 
     public function searchPgw(Request $request) {
         $cari = $request->get('mhs');
@@ -30,7 +30,7 @@ class logrecordPgwController extends Controller
     public function recordPgw($id) {
         $pgw = Listpgw::findOrFail($id);
         $record = recordpgw::all()->paginate(10);
-        return view('getData.pwg', compact('record'))->with('mhs', $pgw);
+        return view('getData.pgw', compact('record'))->with('mhs', $pgw);
     }
 
     public function searchRecordMhs(Request $request) {

@@ -10,6 +10,12 @@ use App\Http\Requests;
 
 class logrecordController extends Controller
 {
+    public function getData() {
+        $listMhs = Listmhs::all()->paginate(10);
+
+        return view('getData.mhs')->with('recordmhs', $listMhs);
+    }
+
     public function searchMhs(Request $request) {
         $cari = $request->get('mhs');
         if ($cari == '') {
@@ -17,14 +23,14 @@ class logrecordController extends Controller
         }
         else {
             $result = listmhs::all()->paginate(10);
-            return view('getData.mhs')->with('result', $result);
+            return view('getData.mhscari')->with('result', $result);
         }
     }
 
     public function recordMhs($id) {
         $mhs = Listmhs::findOrFail($id);
         $record = recordmhs::all()->paginate(10);
-        return view('getData.pwg', compact('record'))->with('mhs', $mhs);
+        return view('getData.recordmhs', compact('record'))->with('mhs', $mhs);
     }
 
     public function searchRecordMhs(Request $request) {
@@ -34,7 +40,7 @@ class logrecordController extends Controller
         }
         else {
             $result = Recordmhs::all()->paginate(10);
-            return view('getData.mhs')->with('result', $result);
+            return view('getData.recordmhscari')->with('result', $result);
         }
     }
 }

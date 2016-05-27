@@ -58,6 +58,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
     return 'ini admin';
     });
 
+    Route::get('mahasiswa', 'logrecordMhsController@getData');
+    Route::get('mahasiswacari', 'logrecordMhsController@searchMhs');
+    Route::get('mahasiswa/record', 'logrecordMhsController@recordMhs');
+
      Route::get('listmahasiswa', 'mahasiswacontroller@getdata');
 
      Route::get('listpegawai', 'pegawaicontroller@getdata');
