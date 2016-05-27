@@ -63,7 +63,16 @@ class pegawaicontroller extends Controller
 
       // else{
 
-      $result = Recordpgw::where('nama_surat', 'LIKE', '%'.$cari.'%')->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->paginate(10);
+      if($cari==''){
+        // return redirect('admin/listspd');
+        return redirect()->back(); 
+      }
+
+      else{
+
+      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')
+        ->where('pgw_id', '=', $pgwi)
+        ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('ListPegawai.recordpgwcari')->with('result', $result)->with('pgwi', $pgwi);

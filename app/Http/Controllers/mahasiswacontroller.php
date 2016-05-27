@@ -64,38 +64,9 @@ class mahasiswacontroller extends Controller
 
       else{
 
-
-      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
-        { 
-          $name = Auth::user()->name;
-
-          $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
-
-          $query->where('mhs_id', 'LIKE', $lst);
-        })
-          ->orWhere('no_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
-        { 
-          $name = Auth::user()->name;
-
-          $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
-
-          foreach ($lstmhs as $list) {
-            $lst = $list->id;
-          }
-          $query->where('mhs_id', 'LIKE', $lst);
-        })
-          ->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->where(function($query)
-        { 
-          $name = Auth::user()->name;
-
-          $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
-
-          foreach ($lstmhs as $list) {
-            $lst = $list->id;
-          }
-          $query->where('mhs_id', 'LIKE', $lst);
-        })
-      ->paginate(10);
+      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')
+        ->where('mhs_id', '=', $mhsw)
+        ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('ListMahasiswa.recordmhscari')->with('result', $result)->with('mhsw', $mhsw);
