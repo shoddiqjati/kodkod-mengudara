@@ -38,7 +38,7 @@
 
 </tr>
 
-@foreach($rcdpgw as $recor)
+@foreach($result as $recor)
 <tr>
 	<td>{{$recor->nama_surat}}</td>
 	<td>{{$recor->no_surat}}</td>
@@ -52,7 +52,7 @@
 
 
 
-{!!$rcdpgw->render()!!}
+{!!$result->appends(Request::only('rcd'))->render()!!}
 					</div>
                   
                 </div>

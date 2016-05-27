@@ -87,6 +87,66 @@ class mahasiswacontroller extends Controller
     }
 
 
+    public function dftrcdmhscari(Request $request) {
 
+      $name = Auth::user()->name;
+
+      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+
+      foreach ($lstmhs as $list) {
+        $lst = $list->id;
+      }
+        
+      $rcdmhs = Recordmhs::where('mhs_id', 'LIKE', $lst)->paginate(10);
+
+      $cari = $request->get('rcd');
+      if($cari==''){
+        // return redirect('admin/listspd');
+        return redirect()->back(); 
+      }
+
+      else{
+
+
+      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
+        { 
+          $name = Auth::user()->name;
+
+          $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+
+          foreach ($lstmhs as $list) {
+            $lst = $list->id;
+          }
+          $query->where('mhs_id', 'LIKE', $lst);
+        })
+          ->orWhere('no_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
+        { 
+          $name = Auth::user()->name;
+
+          $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+
+          foreach ($lstmhs as $list) {
+            $lst = $list->id;
+          }
+          $query->where('mhs_id', 'LIKE', $lst);
+        })
+          ->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->where(function($query)
+        { 
+          $name = Auth::user()->name;
+
+          $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+
+          foreach ($lstmhs as $list) {
+            $lst = $list->id;
+          }
+          $query->where('mhs_id', 'LIKE', $lst);
+        })
+      ->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('ListMahasiswa.datarcdmhscari')->with('result', $result);
+  
+        }
+    }
 
 }

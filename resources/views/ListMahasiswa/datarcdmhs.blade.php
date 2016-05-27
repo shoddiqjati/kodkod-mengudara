@@ -9,6 +9,12 @@
         <div class="panel-heading">Dashboard</div>
           <div class="panel-body">
 
+<form action="{{ url('/daftarrecordmahasiswacari/') }}" method="get">
+<input type="hidden" name="_token" value="{{ csrf_token() }}" >
+  <input class="form-control pull-left" type="text" name="rcd" id="rcd" placeholder="cari.." style="width: 200px; height:30px; margin-top: 2px;margin-right:10px"></input>
+  <input class="btn btn-default pull-left" type="submit" value="Cari" ></input>
+
+</form>
 
 <br>
 <br>

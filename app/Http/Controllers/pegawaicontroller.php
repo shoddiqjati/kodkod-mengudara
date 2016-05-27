@@ -27,7 +27,7 @@ class pegawaicontroller extends Controller
 
 
     public function searchpgw(Request $request) {
-      $cari = $request->get('mhs');
+      $cari = $request->get('pgw');
       if($cari==''){
         // return redirect('admin/listspd');
         return redirect()->back(); 
@@ -53,7 +53,7 @@ class pegawaicontroller extends Controller
 
 
      public function searchrecordpgw(Request $request, $id) {
-      $cari = $request->get('mhs');
+      $cari = $request->get('pgw');
 
       $pgwi = Listpgw::findOrFail($id);
       // if($cari==''){
@@ -86,5 +86,65 @@ class pegawaicontroller extends Controller
       return view('ListPegawai.datarcdpgw')->with('rcdpgw', $rcdpgw);
     }
 
+    public function dftrcdpgwcari(Request $request) {
 
+      $name = Auth::user()->name;
+
+      $lstpgw = Listpgw::where('nama', 'LIKE', $name)->get();
+
+      foreach ($lstpgw as $list) {
+        $lst = $list->id;
+      }
+        
+      $rcdpgw = Recordpgw::where('pgw_id', 'LIKE', $lst)->paginate(10);
+
+      $cari = $request->get('rcd');
+      if($cari==''){
+        // return redirect('admin/listspd');
+        return redirect()->back(); 
+      }
+
+      else{
+
+
+      $result = Recordpgw::where('nama_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
+        { 
+          $name = Auth::user()->name;
+
+          $lstpgw = Listpgw::where('nama', 'LIKE', $name)->get();
+
+          foreach ($lstpgw as $list) {
+            $lst = $list->id;
+          }
+          $query->where('pgw_id', 'LIKE', $lst);
+        })
+          ->orWhere('no_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
+        { 
+          $name = Auth::user()->name;
+
+          $lstpgw = Listpgw::where('nama', 'LIKE', $name)->get();
+
+          foreach ($lstpgw as $list) {
+            $lst = $list->id;
+          }
+          $query->where('pgw_id', 'LIKE', $lst);
+        })
+          ->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->where(function($query)
+        { 
+          $name = Auth::user()->name;
+
+          $lstpgw = Listpgw::where('nama', 'LIKE', $name)->get();
+
+          foreach ($lstpgw as $list) {
+            $lst = $list->id;
+          }
+          $query->where('pgw_id', 'LIKE', $lst);
+        })
+      ->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('ListMahasiswa.datarcdpgwcari')->with('result', $result);
+  
+        }
+    }
 }
