@@ -50,4 +50,25 @@ class mahasiswacontroller extends Controller
     }
 
 
+     public function searchrecordmhs(Request $request, $id) {
+      $cari = $request->get('mhs');
+
+      $mhsw = Listmhs::findOrFail($id);
+      // if($cari==''){
+      //   // return redirect('admin/listspd');
+      //   return redirect()->back(); 
+      // }
+
+      // else{
+
+      $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('ListMahasiswa.recordmhscari')->with('result', $result)->with('mhsw', $mhsw);
+    
+        // }
+    }
+
+
+
 }
