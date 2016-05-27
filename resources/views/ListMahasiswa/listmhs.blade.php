@@ -33,7 +33,7 @@
 <td>{{$mhs->fakultas}}</td>	
 <td><a class="btn btn-info" data-placement="bottom" title="Lihat Detil Mahasiswa" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $mhs->id;?>" href="#"><span class="fa fa-book"></span></a></td>
 
-<td><a class="btn btn-succes" data-placement="bottom" title="Lihat Detil Mahasiswa" href="{{url('')}}"><span> Record </span></a></td>
+<td><a class="btn btn-succes" data-placement="bottom" title="Lihat Record Mahasiswa" href="{{url('admin/listmahasiswa/record/'. $mhs->id)}}"><span> Record </span></a></td>
 </tr>
 
 <div class="modal fade" id="modalshow<?php echo $mhs->id;?>" tabindex="-1" role="dialog">

@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
      Route::get('listmahasiswa', 'mahasiswacontroller@getdata');
       Route::get('listmahasiswacari', 'mahasiswacontroller@searchmhs');
+      Route::get('listmahasiswa/record/{id}', 'mahasiswacontroller@recordmhs');
 
      // Route::get('getdatamhs', 'mahasiswacontroller@getdata');
 });

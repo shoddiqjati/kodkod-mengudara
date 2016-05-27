@@ -8,6 +8,9 @@ use App\Http\Requests;
 
 use App\Listmhs;
 
+use App\Recordmhs;
+
+
 class mahasiswacontroller extends Controller
 {
     
@@ -39,5 +42,12 @@ class mahasiswacontroller extends Controller
     
         }
     }
+
+     public function recordmhs($id) {
+         $mhs = Listmhs::findOrFail($id);
+         $record = Recordmhs::findOrFail($id);
+        return view('ListMahasiswa.recordmhs', compact('record'))->with('mhs', $mhs);
+    }
+
 
 }
