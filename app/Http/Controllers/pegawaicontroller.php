@@ -78,6 +78,7 @@ class pegawaicontroller extends Controller
         return view('ListPegawai.recordpgwcari')->with('result', $result)->with('pgwi', $pgwi);
     
         // }
+      }
     }
 
 
@@ -114,7 +115,6 @@ class pegawaicontroller extends Controller
       }
 
       else{
-
 
       $result = Recordpgw::where('nama_surat', 'LIKE', '%'.$cari.'%')->where(function($query)
         { 
