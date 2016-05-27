@@ -49,6 +49,11 @@
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
+                                    <?php
+                                    use App\Templatesurat as namaSurat;
+
+                                    namaSurat::query("SELECT * FROM `template_surat`")
+                                    ?>
                                     <option value="cuti_kuliah.odt">Cuti Kuliah</option>
                                     <option value="rekomendasi_beasiswa.odt">Rekomendasi Beasiswa</option>
                                     <option value="aktif_kuliah.odt">Surat Aktif Kuliah</option>
@@ -1113,6 +1118,19 @@
                                     <li>Pilih jenis surat yang akan dibuat</li>
                                     <li>Masukkan penerima surat</li>
                                     <li>Masukkan NIP pegawai yang akan dibuatkan surat</li>
+                                    <li>Klik Cetak</li>
+                                </ol>
+                                <p>Setelah Anda memilih cetak maka file akan otomatis terunduh melalui browser yang Anda gunakan saat ini.</p>
+                            </div>
+                        @endrole
+                            @role(1)
+                            <div class="col-xs-7">
+                                <h4>Petunjuk Penggunaan</h4>
+                                <ol>
+                                    <li>Pilih jenis surat yang akan dibuat</li>
+                                    <li>Masukkan penerima surat</li>
+                                    <li>Masukkan Identitas pegawai yang akan dibuatkan surat</li>
+                                    <li>Melengkapi Data yang dibutuhkan</li>
                                     <li>Klik Cetak</li>
                                 </ol>
                                 <p>Setelah Anda memilih cetak maka file akan otomatis terunduh melalui browser yang Anda gunakan saat ini.</p>
