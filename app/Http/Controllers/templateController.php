@@ -60,6 +60,7 @@ class templateController extends Controller
 
 	    	$template = new surat();
 	        $template->nama_surat = $request->get('nama_surat');
+	        $template->kategori = $request->get('kategori');
 	    	$template->filename = basename($_FILES["fileToUpload"]["name"]);
 	        $template->save();
 
@@ -105,6 +106,7 @@ class templateController extends Controller
 
 	    	$template = surat::find($id);
 	        $template->nama_surat = $request->get('nama_surat');
+	       	$template->kategori = $request->get('kategori');
 	    	$template->filename = basename($_FILES["fileToUpload"]["name"]);
 	        $template->save();
 

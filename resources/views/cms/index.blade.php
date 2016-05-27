@@ -50,7 +50,14 @@
                                 </div><br>
                                 <div>
                                 Nama Surat
-                                <input type="text" name="nama_surat">
+                                  <input type="text" name="nama_surat" required="required">
+                                </div>
+                                <div>
+                                Kategori 
+                                  <select required="required" name="kategori" title="Pilih Kategori">
+                                    <option value="mahasiswa">Mahasiswa</option>
+                                    <option value="pegawai">Pegawai</option>
+                                  </select>
                                 </div>
                                 <div style="float:right;">
                                   <input type="submit" class="btn btn-success" value="Upload" name="submit">
@@ -74,6 +81,7 @@
                               <th>Nama Surat</th>
                               <th>File Name</th>
                               <th>Waktu Unggah</th>
+                              <th>Kategori</th>
                               <th>Aksi</th>
                           </tr>
                       </thead>
@@ -87,6 +95,7 @@
                           <td>{{ $surati->nama_surat }}</td>
                           <td>{{ $surati->filename }}</td>
                           <td>{{ $surati->updated_at }}</td>
+                          <td>{{ $surati->kategori }}</td>
                           <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate"><span class="glyphicon glyphicon-pencil"></a><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete"><span class="glyphicon glyphicon-trash"></a></td>
 
                             <div class="modal fade" id="modalupdate" tabindex="-1" role="dialog">
