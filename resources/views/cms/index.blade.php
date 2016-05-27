@@ -25,8 +25,9 @@
                     </li>
                   </ul>
                   <br>
-                  <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport">Tambah Template</a>
-                    <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
+                 <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport1">Tambah Template</a>
+                    
+                    <div class="modal fade" id="modalimport1" tabindex="-1" role="dialog">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">  
                           <div class="modal-header">

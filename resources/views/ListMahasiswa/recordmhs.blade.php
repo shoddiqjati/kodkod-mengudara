@@ -43,7 +43,7 @@
 
 
 
-{!!$result->appends(Request::only('mhs'))->render()!!}
+{!!$record->appends(Request::only('mhs'))->render()!!}
 
 
 
