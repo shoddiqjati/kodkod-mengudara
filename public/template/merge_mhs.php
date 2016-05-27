@@ -1,4 +1,4 @@
-a<?php
+<?php
 
 // Include classes
 include_once('tbs_class.php'); // Load the TinyButStrong template engine
