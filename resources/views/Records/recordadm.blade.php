@@ -26,15 +26,22 @@
                                 <th>Tanggal</th>
                             </tr>
 
-                            @foreach($record as $recor)
+                            @foreach($recordMhs as $recor)
                                 <tr>
                                     <td>{{$recor->nama_mhs}}</td>
                                     <td>{{$recor->nama_surat}}</td>
                                     <td>{{$recor->no_surat}}</td>
                                     <td>{{$recor->keterangan}}</td>
-
                                 </tr>
                             @endforeach
+                            @foreach($recordPgw as $recor)
+                                <tr>
+                                    <td>{{$recor->nama_mhs}}</td>
+                                    <td>{{$recor->nama_surat}}</td>
+                                    <td>{{$recor->no_surat}}</td>
+                                    <td>{{$recor->keterangan}}</td>
+                                </tr>
+                                @endforeach
                         </table>
                         {{--{!!$record->appends(Request::only('mhs'))->render()!!}--}}
                     </div>

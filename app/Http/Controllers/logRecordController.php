@@ -14,7 +14,7 @@ class logRecordController extends Controller
         $recordMhs = Recordmhs::all();
         $recordPgw = Recordpgw::all();
 
-        return view('Records.recordadm')->with('record', $recordMhs);
+        return view('Records.recordadm')->with('recordMhs', $recordMhs)->with('recordPgw', $recordPgw);
     }
 
     public function searchRecord(Request $request) {

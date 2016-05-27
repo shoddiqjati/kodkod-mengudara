@@ -25,7 +25,7 @@
 
                             @role(3)
                             <li>
-                                <a href="{{ url('/recordmhs') }}">Data</a>
+                                <a href="{{ url('/record') }}">Data</a>
                             </li>
                             @endrole
 

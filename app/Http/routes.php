@@ -61,7 +61,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
     });
 
     Route::get('record', 'logRecordController@getData');
-    Route::get('recordcari', 'logRecordContoller@searchRecord');
+    Route::get('recordadmcari', 'logRecordController@searchRecord');
 
      Route::get('listmahasiswa', 'mahasiswacontroller@getdata');
 
