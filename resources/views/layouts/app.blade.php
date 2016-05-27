@@ -73,6 +73,7 @@
             @role(1)
                <ul class="nav navbar-nav">
                 <li><a href="{{ url('/admin/listmahasiswa') }}">List Mahasiswa</a></li>
+                <li><a href="{{ url('/admin/listpegawai') }}">List Pegawai</a></li>
             </ul>
             @endrole
 

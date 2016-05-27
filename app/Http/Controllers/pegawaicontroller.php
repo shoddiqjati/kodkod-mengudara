@@ -22,4 +22,22 @@ class pegawaicontroller extends Controller
     }
 
 
+    public function searchpgw(Request $request) {
+      $cari = $request->get('mhs');
+      if($cari==''){
+        // return redirect('admin/listspd');
+        return redirect()->back(); 
+      }
+
+      else{
+
+      $result = listmhs::where('nama', 'LIKE', '%'.$cari.'%')->orWhere('niu', 'LIKE', '%'.$cari.'%')->orWhere('nif', 'LIKE', '%'.$cari.'%')->orWhere('fakultas', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('ListMahasiswa.listmhscari')->with('result', $result);
+    
+        }
+    }
+
+
 }
