@@ -23,7 +23,7 @@ class pegawaicontroller extends Controller
 
 
     public function searchpgw(Request $request) {
-      $cari = $request->get('mhs');
+      $cari = $request->get('pgw');
       if($cari==''){
         // return redirect('admin/listspd');
         return redirect()->back(); 
@@ -34,7 +34,7 @@ class pegawaicontroller extends Controller
       $result = listmhs::where('nama', 'LIKE', '%'.$cari.'%')->orWhere('niu', 'LIKE', '%'.$cari.'%')->orWhere('nif', 'LIKE', '%'.$cari.'%')->orWhere('fakultas', 'LIKE', '%'.$cari.'%')->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('ListMahasiswa.listmhscari')->with('result', $result);
+        return view('ListMahasiswa.listpgwcari')->with('result', $result);
     
         }
     }
