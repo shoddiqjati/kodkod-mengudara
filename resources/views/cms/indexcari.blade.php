@@ -25,6 +25,13 @@
                     </li>
                   </ul>
                   <br>
+                  <form action="{{ url('admin/cms/search') }}" method="get" enctype="multipart/form-data">
+                    <div class="col-xs-3 pull-left">
+                      <input class="form-control"  type="text" name="search" id="search" placeholder="cari.." >
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+                    </div>
+                    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+                  </form>
                   <div class="col-xs-12" ><a data-placement="bottom" href="#" title="Tambah" class="btn btn-default btn-fill" style="float:right; margin-top:-5px" data-toggle="modal" data-target="#modalimport">Tambah Template</a>
                     <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
                       <div class="modal-dialog" role="document">
@@ -59,7 +66,7 @@
                     </div>
                   </div>
                   <div>
-                  @if ($surat->count())
+                  @if ($result->count())
                     <table class="table table-striped">
                       <thead>
                           <tr>
@@ -72,7 +79,7 @@
 
                       <tbody>
                         <?php $i=0; ?>
-                        @foreach ($surat as $surati)
+                        @foreach ($result as $surati)
                         <?php $i++; ?>
                         <tr>
                           <td>{{ $surati->id }}</td>
@@ -144,7 +151,7 @@
                       </tbody>
                     </table>
                   <center>
-                    {!!$surat->render()!!}
+                    {!!$result->appends(Request::only('search'))->render()!!}
                   </center>
                   @else
                     Belum ada template surat
