@@ -183,8 +183,8 @@
                             @endrole
                             @role(2)
                             <div class="form-group">
-                                <label class="control-label" for="NIM">Masukkan NIP</label>
-                                <input name="NIP1" placeholder="Masukkan NIP    " id="NIP" type="text" class="form-control"/>
+                                <label class="control-label" for="NIM">Masukkan nip</label>
+                                <input name="nip1" placeholder="Masukkan nip    " id="nip" type="text" class="form-control"/>
 
                                 <div class="form-group" id="grptanggal1">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
@@ -269,7 +269,7 @@
                             @role(1)
                             <div class="form-group">
                                 <label class="control-label" for="NIM">Masukkan Identitas</label>
-                                <input name="NIP1" placeholder="Masukkan Indentitas" id="Identitas" type="text" class="form-control"/>
+                                <input name="nip1" placeholder="Masukkan Indentitas" id="Identitas" type="text" class="form-control"/>
 
                                 <div class="form-group" id="grptanggal1">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
@@ -354,8 +354,8 @@
 
                             <div class="form-group" id="grpnip2">
                                 <hr>
-                                <label class="control-label" for="NIP2">Masukkan NIP</label>
-                                <input name="NIP2" placeholder="Masukkan NIP" id="NIP2" type="text" class="form-control" />
+                                <label class="control-label" for="nip2">Masukkan nip</label>
+                                <input name="nip2" placeholder="Masukkan nip" id="nip2" type="text" class="form-control" />
 
                                 <div class="form-group" id="grptanggal2">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
@@ -440,8 +440,8 @@
 
                             <div class="form-group" id="grpnip3">
                                 <hr>
-                                <label class="control-label" for="NIP3">Masukkan NIP</label>
-                                <input name="NIP3" placeholder="Masukkan NIP" id="NIP3" type="text" class="form-control"/>
+                                <label class="control-label" for="nip3">Masukkan nip</label>
+                                <input name="nip3" placeholder="Masukkan nip" id="nip3" type="text" class="form-control"/>
 
                                 <div class="form-group" id="grptanggal3">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
@@ -527,8 +527,8 @@
 
                             <div class="form-group" id="grpnip4">
                                 <hr>
-                                <label class="control-label" for="NIP4">Masukkan NIP</label>
-                                <input name="NIP4" placeholder="Masukkan NIP" id="NIP3" type="text" class="form-control"/>
+                                <label class="control-label" for="nip4">Masukkan nip</label>
+                                <input name="nip4" placeholder="Masukkan nip" id="nip3" type="text" class="form-control"/>
 
                                 <div class="form-group" id="grptanggal4">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
@@ -612,8 +612,8 @@
 
                             <div class="form-group" id="grpnip5">
                                 <hr>
-                                <label class="control-label" for="NIP5">Masukkan NIP</label>
-                                <input name="NIP5" placeholder="Masukkan NIP" id="NIP5" type="text" class="form-control"/>
+                                <label class="control-label" for="nip5">Masukkan nip</label>
+                                <input name="nip5" placeholder="Masukkan nip" id="nip5" type="text" class="form-control"/>
                                 <div class="form-group" id="grptanggal5">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
                                     <br>
@@ -695,8 +695,8 @@
 
                             <div class="form-group" id="grpnip6">
                                 <hr>
-                                <label class="control-label" for="NIP6">Masukkan NIP</label>
-                                <input name="NIP6" placeholder="Masukkan NIP" id="NIP6" type="text" class="form-control"/>
+                                <label class="control-label" for="nip6">Masukkan nip</label>
+                                <input name="nip6" placeholder="Masukkan nip" id="nip6" type="text" class="form-control"/>
                                 <div class="form-group" id="grptanggal6">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
                                     <br>
@@ -778,8 +778,8 @@
 
                             <div class="form-group" id="grpnip7">
                                 <hr>
-                                <label class="control-label" for="NIP7">Masukkan NIP</label>
-                                <input name="NIP7" placeholder="Masukkan NIP" id="NIP7" type="text" class="form-control"/>
+                                <label class="control-label" for="nip7">Masukkan nip</label>
+                                <input name="nip7" placeholder="Masukkan nip" id="nip7" type="text" class="form-control"/>
                                 <div class="form-group" id="grptanggal7">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
                                     <br>
@@ -861,8 +861,8 @@
 
                             <div class="form-group" id="grpnip8">
                                 <hr>
-                                <label class="control-label" for="NIP8">Masukkan NIP</label>
-                                <input name="NIP8" placeholder="Masukkan NIP" id="NIP8" type="text" class="form-control"/>
+                                <label class="control-label" for="nip8">Masukkan nip</label>
+                                <input name="nip8" placeholder="Masukkan nip" id="nip8" type="text" class="form-control"/>
                                 <div class="form-group" id="grptanggal8">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
                                     <br>
@@ -944,8 +944,8 @@
 
                             <div class="form-group" id="grpnip9">
                                 <hr>
-                                <label class="control-label" for="NIP9">Masukkan NIP</label>
-                                <input name="NIP9" placeholder="Masukkan NIP" id="NIP9" type="text" class="form-control"/>
+                                <label class="control-label" for="nip9">Masukkan nip</label>
+                                <input name="nip9" placeholder="Masukkan nip" id="nip9" type="text" class="form-control"/>
                                 <div class="form-group" id="grptanggal9">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
                                     <br>
@@ -1027,8 +1027,8 @@
 
                             <div class="form-group" id="grpnip10">
                                 <hr>
-                                <label class="control-label" for="NIP10">Masukkan NIP</label>
-                                <input name="NIP10" placeholder="Masukkan NIP" id="NIP10" type="text" class="form-control"/>
+                                <label class="control-label" for="nip10">Masukkan nip</label>
+                                <input name="nip10" placeholder="Masukkan nip" id="nip10" type="text" class="form-control"/>
                                 <div class="form-group" id="grptanggal10">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
                                     <br>
@@ -1132,7 +1132,7 @@
                                 <ol>
                                     <li>Pilih jenis surat yang akan dibuat</li>
                                     <li>Masukkan penerima surat</li>
-                                    <li>Masukkan NIP pegawai yang akan dibuatkan surat</li>
+                                    <li>Masukkan nip pegawai yang akan dibuatkan surat</li>
                                     <li>Klik Cetak</li>
                                 </ol>
                                 <p>Setelah Anda memilih cetak maka file akan otomatis terunduh melalui browser yang Anda gunakan saat ini.</p>
@@ -1217,7 +1217,7 @@
                         $('#grptanggal1').show();
 
                         for(i=2; i<=10; i++){
-                            //document.getElementById('NIP'+i).value = "";
+                            //document.getElementById('nip'+i).value = "";
                             $('#grpnip'+i).hide();
                             $('#grptanggal'+i).hide();
 
