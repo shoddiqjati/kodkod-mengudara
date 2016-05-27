@@ -17,12 +17,22 @@
                             <li class="active">
                                 <a href="{{ url('/home') }}">Surat</a>
                             </li>
+                            @role(2)
                             <li>
                                 <a href="{{ url('/getData') }}">Data</a>
                             </li>
+                            @endrole
+
+                            @role(3)
+                            <li>
+                                <a href="{{ url('/getData') }}">Data</a>
+                            </li>
+                            @endrole
+
+
                             @role(1)
                             <li>
-                                <a href="{{ url('admin/cms') }}">CMS</a>
+                                <a href="{{ url('admin/cms') }}">Tambah Template</a>
                             </li>
                             @endrole
                         </ul>
