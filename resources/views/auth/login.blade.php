@@ -25,17 +25,6 @@
             <div class="box-header">
                 <h2>Log In</h2>
             </div>
-            <!-- <label for="username">Username</label>
-            <br/>
-            <input type="text" id="username">
-            <br/>
-            <label for="password">Password</label>
-            <br/>
-            <input type="password" id="password">
-            <br/>
-            <button type="submit">Sign In</button>
-            <br/>
-            <a href="#"><p class="small">Forgot your password?</p></a> -->
 
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
