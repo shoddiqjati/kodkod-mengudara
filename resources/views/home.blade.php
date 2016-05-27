@@ -22,44 +22,149 @@
                             </li>
                         </ul>
                         <br>
-                   
-                        <form role="form" id="form1" method="post" action="templates/demo_merge.php" class="col-md-5 well">
+
+                        @role(1)
+                        <form role="form" id="form_admin" method="post" action="templates/demo_merge.php" class="col-md-5 well">
+                            <label class="control-label" for="lunch">Jenis Surat</label>
+                            <div class="form-group">
+                                <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
+                                    <option value="transkrip_nilai.odt">Transkrip Nilai</option>
+                                    <option value="surat_tugas_ins.odt">Surat Tugas</option>
+                                </select>
+                            </div>
+                        @endrole
+                        @role(2)
+                        <form role="form" id="form_pgw" method="post" action="templates/demo_merge.php" class="col-md-5 well">
                             <label class="control-label" for="lunch">Jenis Surat</label>
                             <div class="form-group">
                                 <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
                                     <option value="cuti_besar.odt">Cuti Besar</option>
-                                    <option value="cuti_haji.odt">Cuti Haji</option>
-                                    <option value="cuti_umroh.odt">Cuti Umroh</option>
-                                    <option value="cuti_alasan_penting.odt">Cuti Alasan Penting</option>
                                     <option value="cuti_tahunan.odt">Cuti Tahunan</option>
+                                    <option value="surat_tugas.odt">Surat Perintah Tugas</option>
                                 </select>
                             </div>
+                        @endrole
+                        @role(3)
+                        <form role="form" id="form_mhs" method="post" action="templates/demo_merge.php" class="col-md-5 well">
+                            <label class="control-label" for="lunch">Jenis Surat</label>
+                            <div class="form-group">
+                                <select required="required" id="surat" name="tpl" class="form-control selectpicker" data-live-search="true" title="Pilih Jenis Surat" >
+                                    <option value="cuti_kuliah.odt">Cuti Kuliah</option>
+                                    <option value="rekomendasi_beasiswa.odt">Rekomendasi Beasiswa</option>
+                                    <option value="aktif_kuliah.odt">Surat Aktif Kuliah</option>
+                                </select>
+                            </div>
+                        @endrole
                             <div class="form-group" >
                                 <label class="control-label" for="kepada">Surat Ini Ditujukan Kepada</label>
-                                <input placeholder="Masukkan Penerima Surat" name="kepada" id="kepada" type="text" class="form-control"/>
+                                <input placeholder="Masukkan Penerima Surat" name="kepada" id="kepada" type="text" disabled="true" class="form-control"/>
                             </div>
 
+                            {{--<div class="form-group" id="grpid">--}}
+                                {{--<label class="control-label" for="grp_id">Jumlah Pegawai</label><br>--}}
+                                {{--<select id="jml_id" name="jml_id" class="form-control selectpicker" title="Pilih Angka">--}}
+                                    {{--<option value="1">1</option>--}}
+                                    {{--<option value="2">2</option>--}}
+                                    {{--<option value="3">3</option>--}}
+                                    {{--<option value="4">4</option>--}}
+                                    {{--<option value="5">5</option>--}}
+                                    {{--<option value="6">6</option>--}}
+                                    {{--<option value="7">7</option>--}}
+                                    {{--<option value="8">8</option>--}}
+                                    {{--<option value="9">9</option>--}}
+                                    {{--<option value="10">10</option>--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
 
-                            <div class="form-group" id="grpid">
-                                <label class="control-label" for="grp_id">Jumlah Pegawai</label><br>
-                                <select id="jml_id" name="jml_id" class="form-control selectpicker" title="Pilih Angka">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-
-
+                        @role(3)
                             <div class="form-group">
-                                <label class="control-label" for="NIP">Masukkan NIP</label>
-                                <input name="NIP1" placeholder="Masukkan NIP" id="NIP1" type="text" class="form-control"/>
+                                <label class="control-label" for="NIM">Masukkan NIM</label>
+                                <input name="NIP1" placeholder="Masukkan NIM" id="NIM" type="text" class="form-control"/>
+
+                                <div class="form-group" id="grptanggal1">
+                                    <label class="control-label">Tanggal Izin</label>
+                                    <br>
+                                    <div class="col-xs-4">
+                                        <select name="DOBDay1" class="form-control">
+                                            <option> - Hari - </option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <select name="DOBMonth1" class="form-control">
+                                            <option> - Bulan - </option>
+                                            <option value="January">January</option>
+                                            <option value="Febuary">Febuary</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <select name="DOBYear1" class="form-control">
+                                            <option> - Tahun - </option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                    </div>
+
+
+                                    <label class="control-label">Lama Izin (dalam angka)</label>
+                                    <input name="lamacuti1" id="lamacuti1" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            @endrole
+                            @role(2)
+                            <div class="form-group">
+                                <label class="control-label" for="NIM">Masukkan NIP</label>
+                                <input name="NIP1" placeholder="Masukkan NIP    " id="NIP" type="text" class="form-control"/>
 
                                 <div class="form-group" id="grptanggal1">
                                     <label class="control-label">Tanggal Mulai Cuti</label>
@@ -140,6 +245,92 @@
                                     <input name="lamacuti1" id="lamacuti1" type="text" class="form-control"/>
                                 </div>
                             </div>
+                            @endrole
+                            @role(1)
+                            <div class="form-group">
+                                <label class="control-label" for="NIM">Masukkan Identitas</label>
+                                <input name="NIP1" placeholder="Masukkan Indentitas" id="Identitas" type="text" class="form-control"/>
+
+                                <div class="form-group" id="grptanggal1">
+                                    <label class="control-label">Tanggal Mulai Cuti</label>
+                                    <br>
+                                    <div class="col-xs-4">
+                                        <select name="DOBDay1" class="form-control">
+                                            <option> - Hari - </option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <select name="DOBMonth1" class="form-control">
+                                            <option> - Bulan - </option>
+                                            <option value="January">January</option>
+                                            <option value="Febuary">Febuary</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <select name="DOBYear1" class="form-control">
+                                            <option> - Tahun - </option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                    </div>
+
+
+                                    <label class="control-label">Lama Cuti (dalam angka)</label>
+                                    <input name="lamacuti1" id="lamacuti1" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            @endrole
 
                             <div class="form-group" id="grpnip2">
                                 <hr>
@@ -903,19 +1094,30 @@
 
 
                         </form>
+                        @role(3)
                         <div class="col-xs-7">
                             <h4>Petunjuk Penggunaan</h4>
                             <ol>
                                 <li>Pilih jenis surat yang akan dibuat</li>
-                                <li>Masukkan penerima surat</li>
-                                <li>Tentukan jumlah pegawai yang akan dibuatkan surat</li>
-                                <li>Masukkan NIP pegawai yang akan dibuatkan surat</li>
+                                {{--<li>Masukkan penerima surat</li>--}}
+                                <li>Masukkan NIM</li>
                                 <li>Klik Cetak</li>
                             </ol>
                             <p>Setelah Anda memilih cetak maka file akan otomatis terunduh melalui browser yang Anda gunakan saat ini.</p>
-
-
                         </div>
+                        @endrole
+                        @role(2)
+                            <div class="col-xs-7">
+                                <h4>Petunjuk Penggunaan</h4>
+                                <ol>
+                                    <li>Pilih jenis surat yang akan dibuat</li>
+                                    <li>Masukkan penerima surat</li>
+                                    <li>Masukkan NIP pegawai yang akan dibuatkan surat</li>
+                                    <li>Klik Cetak</li>
+                                </ol>
+                                <p>Setelah Anda memilih cetak maka file akan otomatis terunduh melalui browser yang Anda gunakan saat ini.</p>
+                            </div>
+                        @endrole
                     </div>
                 </div>
             </div>

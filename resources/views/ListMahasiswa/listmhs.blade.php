@@ -3,6 +3,7 @@
 
 
 @section('content')
+<<<<<<< HEAD
 
 
 
@@ -15,6 +16,8 @@
 </form>
 
 
+=======
+>>>>>>> origin/master
 <table>
 	
 <tr>
@@ -183,8 +186,4 @@
 </table>
 
 {!!$listmhs->render()!!}
-
-
-
-
 @endsection
