@@ -209,34 +209,33 @@ switch (${'bulanselesai'.$i}) {
 
 for($i=1; $i<=10; $i++){
 //bikin variabel supaya ketika kosong tetep jalan
+    ${'nip'.$i} = "";
     ${'nama'.$i} = "";
-    ${'angkatan'.$i} = "";
-    ${'niu'.$i} = "";
-    ${'fakultas'.$i} = "";
-    ${'nif'.$i} = "";
-    ${'jurusan'.$i} = "";
-    ${'prodi'.$i} = "";
     ${'tempat_lahir'.$i} = "";
     ${'tanggal_lahir'.$i} = "";
-    ${'alamat'.$i} = "";
+    ${'pangkat'.$i} = "";
+    ${'golongan'.$i} = "";
+    ${'jabatan'.$i} = "";
+    ${'unit_kerja'.$i} = "";
 }
 
 
 for($i=1; $i<=$jml_id; $i++){
-    ${'niu'.$i} = (isset($_POST['niu'.$i])) ? $_POST['niu'.$i] : '';
-    ${'niu'.$i} = trim(''.${'niu'.$i});
+    ${'nip'.$i} = (isset($_POST['nip'.$i])) ? $_POST['nip'.$i] : '';
+    ${'nip'.$i} = trim(''.${'nip'.$i});
 
 }
 
 
 $data=array();
 
+
 for($i=1; $i<=$jml_id; $i++){
 
     $nomer = $i;
-    $niu = ${'niu'.$i}; 
+    $nip = ${'nip'.$i}; 
 
-    $sql = "SELECT * FROM list_mhs where niu = '$niu'";
+    $sql = "SELECT * FROM list_pgw where nip = '$nip'";
     $result = $conn->query($sql);
 
     $row = $result->fetch_assoc();
@@ -250,33 +249,25 @@ for($i=1; $i<=$jml_id; $i++){
     if(${'tempat_lahir'.$i}==""){
         ${'tempat_lahir'.$i}="-";
     }
-    ${'tanggal_lahir'.$i} = $row["tanggal_lahir"];
+    ${'tanggal_lahir'.$i} = substr($row["tanggal_lahir"], 0,11);
         if(${'tanggal_lahir'.$i}==""){
         ${'tanggal_lahir'.$i}="-";
     }
-    ${'angkatan'.$i} = $row["angkatan"];
-        if(${'angkatan'.$i}==""){
-        ${'angkatan'.$i}="-";
+    ${'pangkat'.$i} = $row["pangkat"];
+        if(${'pangkat'.$i}==""){
+        ${'pangkat'.$i}="-";
     }
-    ${'fakultas'.$i} = $row["fakultas"];
-        if(${'fakultas'.$i}==""){
-        ${'fakultas'.$i}="-";
+    ${'golongan'.$i} = $row["golongan"];
+        if(${'golongan'.$i}==""){
+        ${'golongan'.$i}="-";
     }
-    ${'nif'.$i} = $row["nif"];
-        if(${'nif'.$i}==""){
-        ${'nif'.$i}="-";
+    ${'jabatan'.$i} = $row["jabatan"];
+    if(${'jabatan'.$i}==""){
+        ${'jabatan'.$i}="-";
     }
-    ${'jurusan'.$i} = $row["jurusan"];
-    if(${'jurusan'.$i}==""){
-        ${'jurusan'.$i}="-";
-    }
-    ${'prodi'.$i} = $row["prodi"];
-    if(${'prodi'.$i}==""){
-        ${'prodi'.$i}="-";
-    }
-    ${'alamat'.$i} = $row["alamat"];
-    if(${'alamat'.$i}==""){
-        ${'alamat'.$i}="-";
+    ${'unit_kerja'.$i} = $row["unit_kerja"];
+    if(${'unit_kerja'.$i}==""){
+        ${'unit_kerja'.$i}="-";
     }
 
     if(${'lamacuti'.$i}==""){
@@ -285,16 +276,14 @@ for($i=1; $i<=$jml_id; $i++){
 
     $data[]=array(
         'nomer' => ${'nomer'},
-        'niu' => ${'niu'.$i},
+        'nip' => ${'nip'.$i},
         'nama' => ${'nama'.$i},
         'tempat_lahir' => ${'tempat_lahir'.$i},
         'tanggal_lahir' => ${'tanggal_lahir'.$i},
-        'angkatan' => ${'angkatan'.$i},
-        'fakultas' => ${'fakultas'.$i},
-        'nif' => ${'nif'.$i},
-        'jurusan' => ${'jurusan'.$i},
-        'prodi' => ${'prodi'.$i},
-        'alamat' => ${'alamat'.$i},
+        'pangkat' => ${'pangkat'.$i},
+        'golongan' => ${'golongan'.$i},
+        'jabatan' => ${'jabatan'.$i},
+        'unit_kerja' => ${'unit_kerja'.$i},
         'lamacuti' => ${'lamacuti'.$i},
         'tanggalmulai' => ${'tanggalmulai'.$i},
         'tanggalselesai' => ${'tanggalselesai'.$i});

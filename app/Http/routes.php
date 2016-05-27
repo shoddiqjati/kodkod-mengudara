@@ -13,7 +13,7 @@
 
 Route::auth();
 
-
+//woyooo
 Route::group(['middleware' => 'auth'], function () {
     
      Route::get('/record', 'mahasiswacontroller@data');
