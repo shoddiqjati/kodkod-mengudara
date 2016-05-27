@@ -32,6 +32,7 @@
 	
 <tr>
 <th>Nama Surat</th>
+<th>No Surat</th>
 <th>Keterangan</th>
 <th>Tanggal</th>
 </tr>
@@ -39,6 +40,7 @@
 @foreach($record as $recor)
 <tr>
 	<td>{{$recor->nama_surat}}</td>
+  <td>{{$recor->no_surat}}</td>
 	<td>{{$recor->keterangan}}</td>
 
 </tr>
