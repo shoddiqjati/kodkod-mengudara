@@ -4,7 +4,7 @@
 <link href="{{ URL::asset('css/bootstrap-select.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('css/jquery-ui-1.10.0.custom.css') }}" rel="stylesheet">
 @show
-
+   
 @section('content')
 <div class="container">
     <div class="row">
