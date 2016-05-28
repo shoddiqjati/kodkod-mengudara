@@ -33,6 +33,7 @@
 <th>Nama Surat</th>
 <th>No Surat</th>
 <th>Keterangan</th>
+<th>Status</th>
 <th>Tanggal</th>
 </tr>
 
@@ -41,6 +42,8 @@
 	<td>{{$recor->nama_surat}}</td>
 	<td>{{$recor->no_surat}}</td>
 	<td>{{$recor->keterangan}}</td>
+  <td>{{$recor->status}}</td>
+  <td>{{substr($recor->created_at,0,9)}}</td>
 
 </tr>
 

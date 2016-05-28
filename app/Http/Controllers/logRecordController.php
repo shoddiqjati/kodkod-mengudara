@@ -11,8 +11,8 @@ use App\Http\Requests;
 class logRecordController extends Controller
 {
     public function getData() {
-        $recordMhs = Recordmhs::all();
-        $recordPgw = Recordpgw::all();
+        $recordMhs = Recordmhs::paginate(10);
+        $recordPgw = Recordpgw::paginate(10);
 
         return view('Records.recordadm')->with('recordMhs', $recordMhs)->with('recordPgw', $recordPgw);
     }
