@@ -43,7 +43,8 @@
 	<td>{{$recor->no_surat}}</td>
 	<td>{{$recor->keterangan}}</td>
   <td>{{$recor->status}}</td>
-  <td>{{substr($recor->created_at,0,9)}}</td>
+  
+  <td>{{substr($recor->created_at,0,10)}}</td>
 
 </tr>
 

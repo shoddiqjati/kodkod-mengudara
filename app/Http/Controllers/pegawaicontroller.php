@@ -46,7 +46,7 @@ class pegawaicontroller extends Controller
 
     public function recordpgw($id) {
          $pgw = Listpgw::findOrFail($id);
-         $record = Recordpgw::where('pgw_id', 'LIKE', $id)->paginate(10);
+         $record = Recordpgw::where('pgw_id', 'LIKE', $id)->orderBy('created_at', 'desc')->paginate(10);
         return view('ListPegawai.recordpgw', compact('record'))->with('pgw', $pgw);
     }
 
@@ -71,7 +71,7 @@ class pegawaicontroller extends Controller
       else{
 
       $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')
-        ->where('pgw_id', '=', $pgwi)
+        ->where('pgw_id', '=', $pgwi)->orderBy('created_at', 'desc')
         ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
@@ -91,7 +91,7 @@ class pegawaicontroller extends Controller
         $lst = $list->id;
       }
         
-      $rcdpgw = Recordpgw::where('pgw_id', 'LIKE', $lst)->paginate(10);
+      $rcdpgw = Recordpgw::where('pgw_id', 'LIKE', $lst)->orderBy('created_at', 'desc')->paginate(10);
       
       return view('ListPegawai.datarcdpgw')->with('rcdpgw', $rcdpgw);
     }
@@ -106,7 +106,7 @@ class pegawaicontroller extends Controller
         $lst = $list->id;
       }
         
-      $rcdpgw = Recordpgw::where('pgw_id', 'LIKE', $lst)->paginate(10);
+      $rcdpgw = Recordpgw::where('pgw_id', 'LIKE', $lst)->orderBy('created_at', 'desc')->paginate(10);
 
       $cari = $request->get('rcd');
       if($cari==''){

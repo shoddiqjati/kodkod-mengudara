@@ -329,7 +329,9 @@ if ($result_surat->num_rows>0) {
 
 $nomor_surat = rand(100,199);
 
-$query = "INSERT INTO `record_mhs`(`tanggal_surat`, `mhs_id`, `nama_mhs`, `nama_surat`, `no_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$mhs_id', '$nama_mhs', '$nama_surat','$nomor_surat', '$ket', 'Processing')";
+$tang = date("Y-m-d");
+
+$query = "INSERT INTO `record_mhs`(`tanggal_surat`, `mhs_id`, `nama_mhs`, `nama_surat`, `no_surat`, `keterangan`, `status`,`created_at`) VALUES ('$tanggal', '$mhs_id', '$nama_mhs', '$nama_surat','$nomor_surat', '$ket', 'Processing','$tang')";
 $result_insert = $conn->query($query);
 
 

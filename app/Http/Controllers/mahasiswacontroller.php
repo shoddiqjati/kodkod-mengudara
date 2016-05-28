@@ -47,7 +47,7 @@ class mahasiswacontroller extends Controller
 
      public function recordmhs($id) {
          $mhs = Listmhs::findOrFail($id);
-         $record = Recordmhs::where('mhs_id', 'LIKE', $id)->paginate(10);
+         $record = Recordmhs::where('mhs_id', 'LIKE', $id)->orderBy('created_at', 'desc')->paginate(10);
         return view('ListMahasiswa.recordmhs', compact('record'))->with('mhs', $mhs);
     }
 
@@ -65,7 +65,7 @@ class mahasiswacontroller extends Controller
       else{
 
       $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')
-        ->where('mhs_id', '=', $mhsw)
+        ->where('mhs_id', '=', $mhsw)->orderBy('created_at', 'desc')
         ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
@@ -80,7 +80,7 @@ class mahasiswacontroller extends Controller
      public function data(){
       $name = Auth::user()->name;
 
-      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->orderBy('created_at', 'desc')->get();
 
       foreach ($lstmhs as $list) {
         $lst = $list->id;
@@ -96,7 +96,7 @@ class mahasiswacontroller extends Controller
 
       $name = Auth::user()->name;
 
-      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
+      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->orderBy('created_at', 'desc')->get();
 
       foreach ($lstmhs as $list) {
         $lst = $list->id;
