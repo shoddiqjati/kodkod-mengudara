@@ -152,7 +152,7 @@ class pegawaicontroller extends Controller
       ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('ListMahasiswa.datarcdpgwcari')->with('result', $result);
+        return view('ListPegawai.datarcdpgwcari')->with('result', $result);
   
         }
     }

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('upload', 'ExportController@upload');
     Route::get('daftarrecordmahasiswacari', 'mahasiswacontroller@dftrcdmhscari');
-    Route::get('daftarrecordpegawaicari', 'mahasiswacontroller@dftrcdpgwcari');
+    Route::get('daftarrecordpegawaicari', 'pegawaicontroller@dftrcdpgwcari');
 
     // Route::get('/upload', function() {
     //     return view('upload');

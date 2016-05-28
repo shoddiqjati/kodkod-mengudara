@@ -333,145 +333,30 @@
     </script>
 
     <script>
-        // for(i=2; i<=10; i++){
-        //     $('#grpnip'+i).hide();
-        // }
+        for(i=2; i<=10; i++){
+            $('#grpnip'+i).hide();
+        }
 
-        // $('#grptanggal1').show();
-        // for(i=2; i<=10; i++){
-        //     $('#grptanggal'+i).hide();
-        // }
+        $('#grptanggal1').show();
+        for(i=2; i<=10; i++){
+            $('#grptanggal'+i).hide();
+        }
 
-        // $('#grpid').hide();
-        // $('#surat').on('change', function() {
-        //     if($(this).val() == "ijin_belajar.odt" || $(this).val() == "cuti_besar.odt" || $(this).val() == "pengajuan_taspen.odt" || $(this).val() == "permohonan_pensiun.odt" || $(this).val() == "cuti_haji.odt" || $(this).val() == "cuti_umroh.odt") {
-        //         $('#grpid').show();
-        //     }
-        //     else{
-        //         $('#grpid').hide();
+        $('#grpid').hide();
 
-        //         for(i=2; i<=10; i++){
-        //             $('#grpnip'+i).hide();
-        //         }
-        //     }
+        $('#surat').on('change', function() {
 
-        //     if($(this).val() == "ijin_belajar.odt" || $(this).val() == "pengajuan_taspen.odt" || $(this).val() == "pensiun_janda.odt" || $(this).val() == "permohonan_pensiun.odt" || $(this).val() == "pemberian_kenaikan_gaji.odt" || $(this).val() == "plt(penunjukkan).odt" || $(this).val() == "rekomendasi.odt" || $(this).val() == "seleksi_masuk_perguruan_tinggi.odt" || $(this).val() == "SPMJ.odt" || $(this).val() == "SPMT.odt" || $(this).val() == "SPPD.odt" || $(this).val() == "keterangan_anak_yatim.odt" || $(this).val() == "keterangan_tidak_dihukum.odt" || $(this).val() == "laporan_kematian.odt" || $(this).val() == "pembatalan_permohonan_cuti.odt" || $(this).val() == "surat_tugas.odt" ) {
-        //         for(i=1; i<=10; i++){
-        //             $('#grptanggal'+i).hide();
-        //         }
-        //     }
-        //     else{
+//Butuh Tanggal, NIP 1
 
-
-        //         $('#jml_id').on('change', function() {
-        //             if($(this).val() == "1" ) {
-        //                 $('#grpnip').show();
-        //                 $('#grptanggal1').show();
-
-        //                 for(i=2; i<=10; i++){
-        //                     //document.getElementById('nip'+i).value = "";
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-
-        //                 }
-        //             }
-
-        //             else if($(this).val() == "2" ) {
-        //                 for(i=1; i<=3; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-        //                 }
-        //                 for(i=3; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-
-        //             }
-
-        //             else if($(this).val() == "3" ) {
-        //                 for(i=1; i<=3; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-
-        //                 }
-        //                 for(i=4; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-
-        //             }
-        //             else if($(this).val() == "4" ) {
-        //                 for(i=1; i<=4; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-
-        //                 }
-        //                 for(i=5; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-        //             }
-        //             else if($(this).val() == "5" ) {
-        //                 for(i=1; i<=5; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-
-        //                 }
-        //                 for(i=6; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-        //             }
-        //             else if($(this).val() == "6" ) {
-        //                 for(i=1; i<=6; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-        //                 }
-        //                 for(i=7; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-        //             }
-        //             else if($(this).val() == "7" ) {
-        //                 for(i=1; i<=7; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-        //                 }
-        //                 for(i=8; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-        //             }
-        //             else if($(this).val() == "8" ) {
-        //                 for(i=1; i<=8; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-        //                 }
-        //                 for(i=9; i<=10; i++){
-        //                     $('#grpnip'+i).hide();
-        //                     $('#grptanggal'+i).hide();
-        //                 }
-
-        //             }
-        //             else if($(this).val() == "9" ) {
-        //                 for(i=1; i<=9; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-        //                 }
-        //                 $('#grpnip10').hide();
-        //                 $('#grptanggal10').hide();
-        //             }
-        //             else if($(this).val() == "10" ) {
-        //                 for(i=1; i<=10; i++){
-        //                     $('#grpnip'+i).show();
-        //                     $('#grptanggal'+i).show();
-        //                 }
-        //             }
-        //         });
-
-        //     }
-
-
-        // });
+      if($(this).val()=="cuti_tahunan.docx"){
+           $('#grptanggal1').show();
+      }
+      else
+      {
+            $('#grptanggal1').hide();
+            $('#grpid').hide();
+          }
+        }
+    });
     </script>
 @show
