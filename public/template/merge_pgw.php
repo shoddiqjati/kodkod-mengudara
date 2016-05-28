@@ -22,7 +22,7 @@ $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "simple";
+$dbname = "mengudara";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -298,11 +298,11 @@ $template = (isset($_POST['tpl'])) ? $_POST['tpl'] : '';
 $pgw_id;
 $nama_pgw;
 $query = "SELECT * FROM `list_pgw` WHERE `nip` = '$nip'";
-$result_mhsid = $conn->query($query);
-if ($result_mhsid->num_rows>0){
-    while ($row = $result_mhsid->fetch_assoc()) {
-        $mhs_id = $row['id'];
-        $nama_mhs = $row['nama'];
+$result_pgwid = $conn->query($query);
+if ($result_pgwid->num_rows>0){
+    while ($row = $result_pgwid->fetch_assoc()) {
+        $pgw_id = $row['id'];
+        $nama_pgw = $row['nama'];
     }
 } else{}
 
@@ -315,8 +315,9 @@ if ($result_surat->num_rows>0) {
     }
 }
 
-$query = "INSERT INTO `record_pgw`(`tanggal_surat`, `pgw_id`, `nama_pgw`, `nama_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$mhs_id', '$nama_mhs', '$nama_surat', '$ket', 'Processing')";
+$query = "INSERT INTO `record_pgw`(`tanggal_surat`, `pgw_id`, `nama_pgw`, `nama_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$pgw_id', '$nama_pgw', '$nama_surat', '$ket', 'Processing')";
 $result_insert = $conn->query($query);
+$nomor_surat = rand(100,199);
 
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 $TBS->MergeBlock('a', $data);
