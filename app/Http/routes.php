@@ -86,7 +86,11 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
     Route::get('cms/tambah', array('uses' => 'templateController@create'));
     Route::post('cms/update/{id}', 'templateController@update');
     Route::get('cms/update/{id}', array('uses' => 'templateController@update'));
-    Route::post('cms/update/{id}', 'templateController@update');
+
+     Route::post('record/update/{id}', 'logRecordController@update');
+    Route::get('record/update/{id}', array('uses' => 'logRecordController@update'));
+    
+    
 });
 
 Route::group(['prefix' => 'pegawai','middleware' => 'role:pegawai'], function()

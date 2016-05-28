@@ -24,7 +24,32 @@ class logRecordController extends Controller
         }
         else {
             $result = Recordmhs::where('nama_surat', 'LIKE', '%'.$cari.'%')->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->paginate(10);
-            return view('Records.recordadmcari')->with('result', $result);
+            $recordPgw = Recordpgw::where('nama_surat', 'LIKE', '%'.$cari.'%')->orWhere('keterangan', 'LIKE', '%'.$cari.'%')->paginate(10);
+            return view('Records.recordadmcari')->with('result', $result)->with('recordPgw',$recordPgw );
         }
+    }
+
+
+    public function update(Request $request, $id){
+            
+
+            $temp = Recordmhs::find($id);
+            
+            if($temp != null){
+
+            $temp->status = $request->get('stat1');
+            $temp->save();
+
+            }
+
+$template = Recordpgw::find($id);
+
+            if($template != null){
+            $template->status = $request->get('stat2');
+            $template->save();
+            }
+
+
+    return redirect('admin/record');
     }
 }

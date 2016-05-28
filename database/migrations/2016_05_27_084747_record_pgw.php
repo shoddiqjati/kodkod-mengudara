@@ -14,7 +14,7 @@ class RecordPgw extends Migration
     {
         Schema::create('record_pgw', function (Blueprint $table) {
             $table->increments('id');
-             $table->increments('no_surat');
+             $table->string('no_surat');
             $table->integer('pgw_id')->unsigned()->default(0);
             $table->foreign('pgw_id')
                     ->references('id')->on('list_pgw')
@@ -23,7 +23,8 @@ class RecordPgw extends Migration
             $table->foreign('nama_surat')
                     ->references('nama_surat')->on('template_surat')
                     ->onDelete('cascade');
-            $table->string('keterangan'->nullable();
+            $table->string('keterangan')->nullable();
+             $table->string('status')->nullable();
             $table->timestamps();
         });
     }
