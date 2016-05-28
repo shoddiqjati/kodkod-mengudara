@@ -121,7 +121,7 @@
                                         <i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" role="menu" style="display: none">
                                         <li><a href="{{ url('/home')}}">Surat</a></li>
-                                        <li><a href="{{ url('/record')}}">Data</a></li>
+                                        <li><a href="{{ url('/recordpgw')}}">Data</a></li>
                                     </ul>
                                 </li>
                                 <li><a data-toggle="dropdown" role="button" aria-expanded="false">
