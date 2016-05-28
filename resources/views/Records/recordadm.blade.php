@@ -25,6 +25,7 @@
                                 <th>Keterangan</th>
                                 <th>Status</th>
                                 <th>Tanggal</th>
+                                <th>Update Status</th>
                             </tr>
 
                             @foreach($recordMhs as $recor)
@@ -34,8 +35,54 @@
                                     <td>{{$recor->no_surat}}</td>
                                     <td>{{$recor->keterangan}}</td>
                                     <td>{{$recor->status}}</td>
-                                    <td>{{$recor->created_at}}</td>
+                                    <td>{{substr($recor->created_at, 0, 9)}}</td>
+                                       <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate<?php echo $recor->id;?>"><span class="glyphicon glyphicon-pencil"></a></td>
                                 </tr>
+
+                              
+
+                            <div class="modal fade" id="modalupdate<?php echo $recor->id;?>" tabindex="-1" role="dialog">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">  
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title"><b>Update</b></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="col-xs-12">
+                                      <form action="{{ url('admin/record/update', $recor->id) }}" method="post" enctype="multipart/form-data">
+                                         
+                                <div>
+                                <br>
+                                Status
+                                <div>
+                                  <select class="form-control"  required="required" name="stat1" title="Status">
+                                    <option value="Processing">Processing</option>
+                                    <option value="Selesai">Selesai</option>
+                                     <option value="Ditolak">Ditolak</option>
+                                  </select>
+                                  </div>
+                                  <br>
+                                  
+                                  <br>
+                                </div>
+                                        <div style="float:right;">
+                                          <input type="submit" class="btn btn-success" value="Upload" name="submit">
+                                          <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                                          <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+
                             @endforeach
                             @foreach($recordPgw as $recor)
                                 <tr>
@@ -44,8 +91,56 @@
                                     <td>{{$recor->no_surat}}</td>
                                     <td>{{$recor->keterangan}}</td>
                                     <td>{{$recor->status}}</td>
-                                    <td>{{$recor->created_at}}</td>
+                                    <td>{{substr($recor->created_at, 0, 9)}}</td>
+                                    <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate1<?php echo $recor->id;?>"><span class="glyphicon glyphicon-pencil"></a></td>
                                 </tr>
+
+
+                                 
+
+                            <div class="modal fade" id="modalupdate1<?php echo $recor->id;?>" tabindex="-1" role="dialog">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">  
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                   <h4 class="modal-title"><b>Update</b></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="col-xs-12">
+                                      <form action="{{ url('admin/record/update', $recor->id) }}" method="post" enctype="multipart/form-data">
+                                         
+                                <div>
+                                <br>
+                                Status
+                                <div>
+                                  <select class="form-control"  required="required" name="stat2" title="Status">
+                                    <option value="Processing">Processing</option>
+                                    <option value="Selesai">Selesai</option>
+                                     <option value="Ditolak">Ditolak</option>
+                                  </select>
+                                  </div>
+                                  <br>
+                                  
+                                  <br>
+                                </div>
+                                        <div style="float:right;">
+                                          <input type="submit" class="btn btn-success" value="Upload" name="submit">
+                                          <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                                          <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+
+
                                 @endforeach
                         </table>
                         {{--{!!$record->appends(Request::only('mhs'))->render()!!}--}}
