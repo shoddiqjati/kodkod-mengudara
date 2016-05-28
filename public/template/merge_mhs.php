@@ -22,8 +22,8 @@ $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
-$dbname = "db_simple";
+$password = "";
+$dbname = "mengudara";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -329,6 +329,8 @@ if ($result_surat->num_rows>0) {
 
 $query = "INSERT INTO `record_mhs`(`tanggal_surat`, `mhs_id`, `nama_mhs`, `nama_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$mhs_id', '$nama_mhs', '$nama_surat', '$ket', 'Processing')";
 $result_insert = $conn->query($query);
+
+$nomor_surat = rand(100,199);
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 $TBS->MergeBlock('a', $data);
 
