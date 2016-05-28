@@ -143,7 +143,7 @@
 
                                 @endforeach
                         </table>
-                        {{--{!!$record->appends(Request::only('mhs'))->render()!!}--}}
+                        {{--{!!$recordMhs->render()!!}--}}
                     </div>
                 </div>
             </div>
