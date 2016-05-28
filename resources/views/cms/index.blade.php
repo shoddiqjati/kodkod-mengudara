@@ -118,7 +118,7 @@
                           <td>{{ $surati->filename }}</td>
                           <td>{{ $surati->updated_at }}</td>
                           <td>{{ $surati->kategori }}</td>
-                          <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate"><span class="glyphicon glyphicon-pencil"></a><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete"><span class="glyphicon glyphicon-trash"></a></td>
+                          <td><a class="btn btn-warning" data-placement="bottom" title="Update Template" data-toggle="modal" href="#" data-target="#modalupdate"><span class="glyphicon glyphicon-pencil"></a><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $surati->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
                             <div class="modal fade" id="modalupdate" tabindex="-1" role="dialog">
                               <div class="modal-dialog" role="document">
