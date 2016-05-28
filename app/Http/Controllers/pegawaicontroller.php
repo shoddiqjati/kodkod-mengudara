@@ -148,7 +148,7 @@ class pegawaicontroller extends Controller
             $lst = $list->id;
           }
           $query->where('pgw_id', 'LIKE', $lst);
-        })
+        })->orderBy('created_at', 'desc')
       ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');

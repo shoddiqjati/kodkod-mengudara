@@ -80,13 +80,13 @@ class mahasiswacontroller extends Controller
      public function data(){
       $name = Auth::user()->name;
 
-      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->orderBy('created_at', 'desc')->get();
+      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
 
       foreach ($lstmhs as $list) {
         $lst = $list->id;
       }
         
-      $rcdmhs = Recordmhs::where('mhs_id', 'LIKE', $lst)->paginate(10);
+      $rcdmhs = Recordmhs::where('mhs_id', 'LIKE', $lst)->orderBy('created_at', 'desc')->paginate(10);
       
       return view('ListMahasiswa.datarcdmhs')->with('rcdmhs', $rcdmhs);
     }
@@ -96,13 +96,13 @@ class mahasiswacontroller extends Controller
 
       $name = Auth::user()->name;
 
-      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->orderBy('created_at', 'desc')->get();
+      $lstmhs = Listmhs::where('nama', 'LIKE', $name)->get();
 
       foreach ($lstmhs as $list) {
         $lst = $list->id;
       }
         
-      $rcdmhs = Recordmhs::where('mhs_id', 'LIKE', $lst)->paginate(10);
+      $rcdmhs = Recordmhs::where('mhs_id', 'LIKE', $lst)->orderBy('created_at', 'desc')->paginate(10);
 
       $cari = $request->get('rcd');
       if($cari==''){
@@ -145,7 +145,7 @@ class mahasiswacontroller extends Controller
             $lst = $list->id;
           }
           $query->where('mhs_id', 'LIKE', $lst);
-        })
+        })->orderBy('created_at', 'desc')
       ->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
