@@ -315,7 +315,9 @@ if ($result_surat->num_rows>0) {
     }
 }
 
-$query = "INSERT INTO `record_pgw`(`tanggal_surat`, `pgw_id`, `nama_pgw`, `nama_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$pgw_id', '$nama_pgw', '$nama_surat', '$ket', 'Processing')";
+$nomor_surat = rand(100,199);
+
+$query = "INSERT INTO `record_pgw`(`tanggal_surat`, `pgw_id`, `nama_pgw`, `nama_surat`,`no_surat`, `keterangan`, `status`) VALUES ('$tanggal', '$pgw_id', '$nama_pgw', '$nama_surat','nomor_surat', '$ket', 'Processing')";
 $result_insert = $conn->query($query);
 $nomor_surat = rand(100,199);
 
